@@ -1,0 +1,6 @@
+@WMSystem_HostAddress = http://localhost:5083
+
+GET {{WMSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
