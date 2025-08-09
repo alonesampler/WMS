@@ -1,6 +1,6 @@
 ﻿using FluentResults;
 using WMS.Application.DTOs.Resource.Request;
-using WMS.Application.DTOs.Resource.Responce;
+using WMS.Application.DTOs.Resource.Response;
 using WMS.Domain.Entities;
 using WMS.Domain.Enums;
 

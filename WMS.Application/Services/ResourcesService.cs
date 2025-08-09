@@ -1,6 +1,6 @@
 ﻿using FluentResults;
 using WMS.Application.DTOs.Resource.Request;
-using WMS.Application.DTOs.Resource.Responce;
+using WMS.Application.DTOs.Resource.Response;
 using WMS.Application.Extensions;
 using WMS.Application.Services.Abstractions;
 using WMS.Domain.Entities;
@@ -9,11 +9,11 @@ using WMS.Domain.UnitOfWork;
 
 namespace WMS.Application.Services;
 
-public class ResourceService : IResourceService
+public class ResourcesService : IResourceService
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    public ResourceService(IUnitOfWork unitOfWork)
+    public ResourcesService(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }

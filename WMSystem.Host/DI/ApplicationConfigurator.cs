@@ -8,7 +8,8 @@ internal static class ApplicationConfigurator
     public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddScoped<IResourceService, ResourceService>();
+        services.AddScoped<IResourceService, ResourcesService>();
+        services.AddScoped<IUnitOfMeasureService, UnitOfMeasuresService>();
 
         return services;
     }

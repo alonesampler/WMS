@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WMS.Application.DTOs.Resource.Request;
-using WMS.Application.DTOs.Resource.Responce;
+using WMS.Application.DTOs.Resource.Response;
 using WMS.Application.Services.Abstractions;
 using WMS.Domain.Entities;
 using WMS.Domain.Enums;
@@ -42,7 +42,7 @@ public class ResourcesController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<IActionResult> GetByState([FromQuery] State state = State.Working)
+    public async Task<ActionResult<List<ResourceResponse>>> GetByState([FromQuery] State state = State.Working)
     {
         var result = await _resourceService.GetByStateAsync(state);
         if (result.IsFailed)
@@ -52,7 +52,7 @@ public class ResourcesController : ControllerBase
     }
     
     [HttpPut("{id:guid}")]
-    public async Task<IActionResult> Update(Guid id, [FromBody] ResourceParamsRequest @params)
+    public async Task<ActionResult> Update(Guid id, [FromBody] ResourceParamsRequest @params)
     {
         var result = await _resourceService.UpdateAsync(id, @params);
         if (result.IsFailed)
@@ -62,7 +62,7 @@ public class ResourcesController : ControllerBase
     }
     
     [HttpPost("{id:guid}/archive")]
-    public async Task<IActionResult> Archive(Guid id)
+    public async Task<ActionResult> Archive(Guid id)
     {
         var result = await _resourceService.ArchiveResourceAsync(id);
         if (result.IsFailed)
@@ -72,7 +72,7 @@ public class ResourcesController : ControllerBase
     }
     
     [HttpPost("{id:guid}/restore")]
-    public async Task<IActionResult> Restore(Guid id)
+    public async Task<ActionResult> Restore(Guid id)
     {
         var result = await _resourceService.RestoreResourceAsync(id);
         if (result.IsFailed)
@@ -82,7 +82,7 @@ public class ResourcesController : ControllerBase
     }
     
     [HttpDelete("{id:guid}")]
-    public async Task<IActionResult> Delete(Guid id)
+    public async Task<ActionResult> Delete(Guid id)
     {
         var result = await _resourceService.DeleteAsync(id);
         

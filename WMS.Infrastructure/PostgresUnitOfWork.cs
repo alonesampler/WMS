@@ -10,14 +10,20 @@ public class PostgresUnitOfWork : IUnitOfWork
     private readonly ApplicationDbContext _dbContext;
     private IDbContextTransaction _transaction;
     private readonly IResourceRepository _resourceRepository;
+    private readonly IUnitOfMeasureRepository _unitOfMeasureRepository;
 
-    public PostgresUnitOfWork(ApplicationDbContext dbContext, IResourceRepository resourceRepository)
+    public PostgresUnitOfWork(
+        ApplicationDbContext dbContext,
+        IResourceRepository resourceRepository,
+        IUnitOfMeasureRepository unitOfMeasureRepository)
     {
         _dbContext = dbContext;
         _resourceRepository = resourceRepository;
+        _unitOfMeasureRepository = unitOfMeasureRepository;
     }
     
     public IResourceRepository ResourceRepository => _resourceRepository;
+    public IUnitOfMeasureRepository UnitOfMeasureRepository => _unitOfMeasureRepository;
     
     public async Task BeginTransactionAsync()
     {

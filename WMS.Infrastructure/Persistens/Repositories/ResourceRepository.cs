@@ -19,10 +19,9 @@ public class ResourceRepository : IResourceRepository
             .AsNoTracking()
             .FirstOrDefaultAsync(r => r.Id == id);
 
-    public async Task CreateAsync(Resource entity)
-    {
+    public async Task CreateAsync(Resource entity) =>
         await _dbContext.Resources.AddAsync(entity);
-    }
+
 
     public Task UpdateAsync(Resource entity)
     {
@@ -36,11 +35,9 @@ public class ResourceRepository : IResourceRepository
         return Task.CompletedTask;
     }
 
-    public async Task<List<Resource>> GetByStateAsync(State state)
-    {
-        return await _dbContext.Resources
+    public async Task<List<Resource>> GetByStateAsync(State state) =>
+        await _dbContext.Resources
             .AsNoTracking()
             .Where(r => r.State == state)
             .ToListAsync();
-    }
 }

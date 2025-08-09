@@ -14,6 +14,7 @@ public class ApplicationDbContext : DbContext
     }
     
     public DbSet<Resource> Resources { get; set; }
+    public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WMSystem.Host")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+603c1e98f7408c81dba8aa1fd6bc86eb317c8ebe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+019170649e6d677a86a247faf78df520092158cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("WMSystem.Host")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WMSystem.Host")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

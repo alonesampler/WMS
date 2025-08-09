@@ -40,6 +40,24 @@ namespace WMS.Infrastructure.Migrations
 
                     b.ToTable("Resources", "WMS");
                 });
+
+            modelBuilder.Entity("WMS.Domain.Entities.UnitOfMeasure", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("State")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UnitOfMeasures", "WMS");
+                });
 #pragma warning restore 612, 618
         }
     }

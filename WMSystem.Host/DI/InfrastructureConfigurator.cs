@@ -24,6 +24,7 @@ internal static class InfrastructureConfigurator
     
     private static void ConfigureRepositories(IServiceCollection services, IConfiguration configuration)
     {
+        services.AddScoped<IUnitOfMeasureRepository, UnitOfMeasureRepository>();
         services.AddScoped<IResourceRepository, ResourceRepository>();
         services.AddScoped<IUnitOfWork, PostgresUnitOfWork>();
     }
