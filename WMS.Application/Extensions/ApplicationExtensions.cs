@@ -5,6 +5,6 @@ namespace WMS.Application.Extensions;
 
 internal static class ApplicationExtensions
 {
-    public static ResourceResponse ToResponce(this Resource resource) => 
+    public static ResourceResponse ToResponse(this Resource resource) => 
         new ResourceResponse(resource.Id, resource.Title);
 }

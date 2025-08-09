@@ -116,21 +116,13 @@ public class ResourceService : IResourceService
         
         return Result.Ok(resource);
     }
-
-    public Task<Result<List<ResourceResponse>>> GetArchivedAsync()
-    => GetByStateAsync(State.Archived);
-
-    public Task<Result<List<ResourceResponse>>> GetWorkingAsync()
-        => GetByStateAsync(State.Working);
-
-    private async Task<Result<List<ResourceResponse>>> GetByStateAsync(State state)
+    
+    public async Task<Result<List<ResourceResponse>>> GetByStateAsync(State state)
     {
-        var resource = await _unitOfWork.ResourceRepository.GetByStateAsync(state);
+        var resources = await _unitOfWork.ResourceRepository.GetByStateAsync(state);
 
-        var responce = resource.Select
-            (r => r.ToResponce())
-            .ToList();
+        var response = resources.Select(r => r.ToResponse()).ToList();
 
-        return Result.Ok(responce);
+        return Result.Ok(response);
     }
 }

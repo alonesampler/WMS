@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "tg+TZNVYS/0=",
+  "success": true,
+  "projectFilePath": "E:\\WMS\\WMS\\WMS.Domain\\WMS.Domain.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file E:\\WMS\\WMS\\WMS.Domain\\obj\\project.nuget.cache : The input does not contain any JSON tokens. Expected the input to start with a valid JSON token, when isFinalBlock is true. Path: $ | LineNumber: 0 | BytePositionInLine: 0.",
+      "projectPath": "E:\\WMS\\WMS\\WMS.Domain\\WMS.Domain.csproj",
+      "warningLevel": 1,
+      "filePath": "E:\\WMS\\WMS\\WMS.Domain\\WMS.Domain.csproj",
+      "targetGraphs": []
+    }
+  ]
+}

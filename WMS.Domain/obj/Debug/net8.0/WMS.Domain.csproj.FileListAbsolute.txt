@@ -1,0 +1,12 @@
+E:\WMS\WMS\WMS.Domain\bin\Debug\net8.0\WMS.Domain.deps.json
+E:\WMS\WMS\WMS.Domain\bin\Debug\net8.0\WMS.Domain.dll
+E:\WMS\WMS\WMS.Domain\bin\Debug\net8.0\WMS.Domain.pdb
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.AssemblyInfoInputs.cache
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.AssemblyInfo.cs
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.csproj.CoreCompileInputs.cache
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.sourcelink.json
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.dll
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\refint\WMS.Domain.dll
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.pdb
+E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\ref\WMS.Domain.dll
