@@ -119,7 +119,7 @@ public class UnitOfMeasuresService : IUnitOfMeasureService
     
     public async Task<Result<List<UnitOfMeasureResponse>>> GetByStateAsync(State state)
     {
-        var unitOfMeasures = await _unitOfWork.UnitOfMeasureRepository.GetByStateAsync(state);
+        var unitOfMeasures = await _unitOfWork.UnitOfMeasureRepository.GetByStateWithFiltersAsync(state);
 
         var response = unitOfMeasures.Select(r => r.ToResponse()).ToList();
 

@@ -18,3 +18,12 @@ E:\WMS\WMS\WMS.Infrastructure\obj\Debug\net8.0\refint\WMS.Infrastructure.dll
 E:\WMS\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.pdb
 E:\WMS\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.genruntimeconfig.cache
 E:\WMS\WMS\WMS.Infrastructure\obj\Debug\net8.0\ref\WMS.Infrastructure.dll
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.csproj.AssemblyReference.cache
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.AssemblyInfoInputs.cache
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.AssemblyInfo.cs
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.csproj.CoreCompileInputs.cache
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.sourcelink.json
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.dll
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\refint\WMS.Infrastructure.dll
+D:\repos\WMS\WMS.Infrastructure\obj\Debug\net8.0\WMS.Infrastructure.pdb

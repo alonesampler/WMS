@@ -34,9 +34,18 @@ public class UnitOfMeasureRepository : IUnitOfMeasureRepository
         return Task.CompletedTask;
     }
 
-    public Task<List<UnitOfMeasure>> GetByStateAsync(State state) =>
-        _dbContext.UnitOfMeasures
-            .AsNoTracking()
+    public async Task<IEnumerable<UnitOfMeasure>> GetByStateWithFiltersAsync(State state, string? search = null)
+    {
+        var query = _dbContext.UnitOfMeasures
             .Where(r => r.State == state)
-            .ToListAsync();
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            string lowerSearch = search.ToLower();
+            query = query.Where(r => r.Title.ToLower().Contains(lowerSearch));
+        }
+
+        return await query.ToListAsync();
+    }
 }

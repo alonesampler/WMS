@@ -5,5 +5,5 @@ namespace WMS.Domain.Repositories;
 
 public interface IUnitOfMeasureRepository : IRepository<UnitOfMeasure>
 {
-    public Task<List<UnitOfMeasure>> GetByStateAsync(State state);
+    public Task<IEnumerable<UnitOfMeasure>> GetByStateWithFiltersAsync(State state, string? search = null);
 }

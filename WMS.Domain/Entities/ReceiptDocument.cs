@@ -4,6 +4,8 @@ namespace WMS.Domain.Entities;
 
 public class ReceiptDocument
 {
+    private ReceiptDocument() { }
+
     private ReceiptDocument(Guid id, string applicationNumber, DateTime date)
     {
         Id = id;

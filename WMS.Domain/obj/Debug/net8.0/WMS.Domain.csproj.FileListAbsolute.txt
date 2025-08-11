@@ -10,3 +10,15 @@ E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.dll
 E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\refint\WMS.Domain.dll
 E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.pdb
 E:\WMS\WMS\WMS.Domain\obj\Debug\net8.0\ref\WMS.Domain.dll
+D:\repos\WMS\WMS.Domain\bin\Debug\net8.0\WMS.Domain.deps.json
+D:\repos\WMS\WMS.Domain\bin\Debug\net8.0\WMS.Domain.dll
+D:\repos\WMS\WMS.Domain\bin\Debug\net8.0\WMS.Domain.pdb
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.AssemblyInfoInputs.cache
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.AssemblyInfo.cs
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.csproj.CoreCompileInputs.cache
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.sourcelink.json
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.dll
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\refint\WMS.Domain.dll
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\WMS.Domain.pdb
+D:\repos\WMS\WMS.Domain\obj\Debug\net8.0\ref\WMS.Domain.dll

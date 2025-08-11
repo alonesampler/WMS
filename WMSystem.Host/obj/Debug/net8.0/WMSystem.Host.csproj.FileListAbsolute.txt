@@ -148,3 +148,15 @@ E:\WMS\WMS\WMSystem.Host\obj\Debug\net8.0\refint\WMSystem.Host.dll
 E:\WMS\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.pdb
 E:\WMS\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.genruntimeconfig.cache
 E:\WMS\WMS\WMSystem.Host\obj\Debug\net8.0\ref\WMSystem.Host.dll
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.csproj.AssemblyReference.cache
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.GeneratedMSBuildEditorConfig.editorconfig
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.AssemblyInfoInputs.cache
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.AssemblyInfo.cs
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.csproj.CoreCompileInputs.cache
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.MvcApplicationPartsAssemblyInfo.cs
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.MvcApplicationPartsAssemblyInfo.cache
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.sourcelink.json
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.dll
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\refint\WMSystem.Host.dll
+D:\repos\WMS\WMSystem.Host\obj\Debug\net8.0\WMSystem.Host.pdb

@@ -5,5 +5,5 @@ namespace WMS.Domain.Repositories;
 
 public interface IResourceRepository : IRepository<Resource>
 {
-    public Task<List<Resource>> GetByStateAsync(State state);
+    public Task<IEnumerable<Resource>> GetByStateWithFiltersAsync(State state, string? search = null);
 }

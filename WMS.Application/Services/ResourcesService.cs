@@ -119,7 +119,7 @@ public class ResourcesService : IResourceService
     
     public async Task<Result<List<ResourceResponse>>> GetByStateAsync(State state)
     {
-        var resources = await _unitOfWork.ResourceRepository.GetByStateAsync(state);
+        var resources = await _unitOfWork.ResourceRepository.GetByStateWithFiltersAsync(state);
 
         var response = resources.Select(r => r.ToResponse()).ToList();
 

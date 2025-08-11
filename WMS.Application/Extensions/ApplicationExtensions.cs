@@ -1,4 +1,5 @@
-﻿using WMS.Application.DTOs.Resource.Response;
+﻿using WMS.Application.DTOs.ReceiptDocument.Response;
+using WMS.Application.DTOs.Resource.Response;
 using WMS.Application.DTOs.UnitOfMeasure.Response;
 using WMS.Domain.Entities;
 
@@ -11,4 +12,7 @@ internal static class ApplicationExtensions
     
     public static UnitOfMeasureResponse ToResponse(this UnitOfMeasure unitOfMeasure) =>
         new UnitOfMeasureResponse(unitOfMeasure.Id, unitOfMeasure.Title);
+
+    public static ReceiptDocumentInfoResponse ToResponse(this ReceiptDocument receiptDocument) =>
+        new ReceiptDocumentInfoResponse(receiptDocument.ApplicationNumber, receiptDocument.Date);
 }

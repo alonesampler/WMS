@@ -35,9 +35,18 @@ public class ResourceRepository : IResourceRepository
         return Task.CompletedTask;
     }
 
-    public async Task<List<Resource>> GetByStateAsync(State state) =>
-        await _dbContext.Resources
-            .AsNoTracking()
+    public async Task<IEnumerable<Resource>> GetByStateWithFiltersAsync(State state, string? search = null)
+    {
+        var query = _dbContext.Resources
             .Where(r => r.State == state)
-            .ToListAsync();
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            string lowerSearch = search.ToLower();
+            query = query.Where(r => r.Title.ToLower().Contains(lowerSearch));
+        }
+
+        return await query.ToListAsync();
+    }
 }
