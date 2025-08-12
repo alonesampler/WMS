@@ -55,7 +55,11 @@ public class UnitOfMeasuresController : ControllerBase
     {
         var result = await _unitOfMeasureService.UpdateAsync(id, @params);
         if (result.IsFailed)
-            return BadRequest(result.Errors);
+        {
+            return result.Errors.Any(e => e.Message == "Unit of measure not found") 
+                ? NotFound(result.Errors) 
+                : BadRequest(result.Errors);
+        }
 
         return NoContent();
     }
@@ -65,7 +69,11 @@ public class UnitOfMeasuresController : ControllerBase
     {
         var result = await _unitOfMeasureService.ArchiveResourceAsync(id);
         if (result.IsFailed)
-            return BadRequest(result.Errors);
+        {
+            return result.Errors.Any(e => e.Message == "Resource not found" || e.Message == "Unit of measure already archived") 
+                ? NotFound(result.Errors) 
+                : BadRequest(result.Errors);
+        }
 
         return NoContent();
     }
@@ -75,7 +83,11 @@ public class UnitOfMeasuresController : ControllerBase
     {
         var result = await _unitOfMeasureService.RestoreResourceAsync(id);
         if (result.IsFailed)
-            return BadRequest(result.Errors);
+        {
+            return result.Errors.Any(e => e.Message == "Unit of measure not found") 
+                ? NotFound(result.Errors) 
+                : BadRequest(result.Errors);
+        }
 
         return NoContent();
     }
@@ -86,7 +98,11 @@ public class UnitOfMeasuresController : ControllerBase
         var result = await _unitOfMeasureService.DeleteAsync(id);
         
         if (result.IsFailed)
-            return NotFound(result.Errors);
+        {
+            return result.Errors.Any(e => e.Message == "Unit of measure not found") 
+                ? NotFound(result.Errors) 
+                : BadRequest(result.Errors);
+        }
 
         return NoContent();
     }

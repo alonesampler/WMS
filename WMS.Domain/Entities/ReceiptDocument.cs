@@ -21,7 +21,7 @@ public class ReceiptDocument
 
     public static ReceiptDocument Create(Guid id, string applicationNumber, DateTime date)
     {
-        if (id != Guid.Empty)
+        if (id == Guid.Empty)
             throw new DomainException("Guid is empty");
         
         if(string.IsNullOrWhiteSpace(applicationNumber))

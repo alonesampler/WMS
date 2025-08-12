@@ -15,7 +15,7 @@ public class ReceiptDocumentService : IReceiptDocumentService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<Result> CreateAsync(ReceiptDocumentParamsRequest @params)
+    public async Task<Result<Guid>> CreateAsync(ReceiptDocumentParamsRequest @params)
     {
         var receiptDocument = ReceiptDocument.Create(
             Guid.NewGuid(),
@@ -26,7 +26,7 @@ public class ReceiptDocumentService : IReceiptDocumentService
         await _unitOfWork.ReceiptDocumentRepository.CreateAsync(receiptDocument);
         await _unitOfWork.CommitAsync();
 
-        return Result.Ok();
+        return Result.Ok(receiptDocument.Id);
     }
 
     public async Task<Result<ReceiptDocument>> GetByIdAsync(Guid id)

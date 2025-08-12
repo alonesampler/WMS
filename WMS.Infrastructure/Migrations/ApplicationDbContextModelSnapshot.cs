@@ -23,6 +23,24 @@ namespace WMS.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("WMS.Domain.Entities.ReceiptDocument", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ApplicationNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReceiptDocuments", "WMS");
+                });
+
             modelBuilder.Entity("WMS.Domain.Entities.Resource", b =>
                 {
                     b.Property<Guid>("Id")

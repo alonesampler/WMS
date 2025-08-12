@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"pe/Gs6Cc75II1qNO0MC70mUaLt5k3aDdilt7SEUkBH0=","Source":"WMSystem.Host","BasePath":"_content/WMSystem.Host","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "PoGdMf8rww9XP2g4zFCQYIy7TK50RM9WtcnTkzsp5Q8=",
+  "Source": "WMSystem.Host",
+  "BasePath": "_content/WMSystem.Host",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

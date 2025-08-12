@@ -15,6 +15,7 @@ public class ApplicationDbContext : DbContext
     
     public DbSet<Resource> Resources { get; set; }
     public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
+    public DbSet<ReceiptDocument> ReceiptDocuments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

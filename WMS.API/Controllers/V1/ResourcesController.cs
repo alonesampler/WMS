@@ -7,7 +7,6 @@ using WMS.Domain.Enums;
 
 namespace WMS.API.Controllers.V1;
 
-
 [ApiController]
 [Route("v1/Resources")]
 public class ResourcesController : ControllerBase
@@ -56,7 +55,11 @@ public class ResourcesController : ControllerBase
     {
         var result = await _resourceService.UpdateAsync(id, @params);
         if (result.IsFailed)
-            return BadRequest(result.Errors);
+        {
+            return result.Errors.Any(e => e.Message == "Resource not found") 
+                ? NotFound(result.Errors) 
+                : BadRequest(result.Errors);
+        }
 
         return NoContent();
     }
@@ -66,7 +69,11 @@ public class ResourcesController : ControllerBase
     {
         var result = await _resourceService.ArchiveResourceAsync(id);
         if (result.IsFailed)
-            return BadRequest(result.Errors);
+        {
+            return result.Errors.Any(e => e.Message == "Resource not found") 
+                ? NotFound(result.Errors) 
+                : BadRequest(result.Errors);
+        }
 
         return NoContent();
     }
@@ -76,7 +83,11 @@ public class ResourcesController : ControllerBase
     {
         var result = await _resourceService.RestoreResourceAsync(id);
         if (result.IsFailed)
-            return BadRequest(result.Errors);
+        {
+            return result.Errors.Any(e => e.Message == "Resource not found") 
+                ? NotFound(result.Errors) 
+                : BadRequest(result.Errors);
+        }
 
         return NoContent();
     }
@@ -87,7 +98,11 @@ public class ResourcesController : ControllerBase
         var result = await _resourceService.DeleteAsync(id);
         
         if (result.IsFailed)
-            return NotFound(result.Errors);
+        {
+            return result.Errors.Any(e => e.Message == "Resource not found") 
+                ? NotFound(result.Errors) 
+                : BadRequest(result.Errors);
+        }
 
         return NoContent();
     }

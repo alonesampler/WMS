@@ -44,7 +44,7 @@ public class UnitOfMeasuresService : IUnitOfMeasureService
         var unitOfMeasure = getResult.Value;
 
         if (unitOfMeasure.State == State.Archived)
-            return Result.Fail("Resource already archived");
+            return Result.Fail("Unit of measure already archived");
 
         unitOfMeasure.Archive();
 
@@ -112,7 +112,7 @@ public class UnitOfMeasuresService : IUnitOfMeasureService
         var unitOfMeasure = await _unitOfWork.UnitOfMeasureRepository.GetByIdAsync(id);
         
         if (unitOfMeasure == null)
-            return Result.Fail("Resource not found");
+            return Result.Fail("Unit of measure not found");
         
         return Result.Ok(unitOfMeasure);
     }
