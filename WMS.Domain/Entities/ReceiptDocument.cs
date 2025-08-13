@@ -13,11 +13,13 @@ public class ReceiptDocument
         Date = date;
     }
     
-    public Guid Id { get; set; }
+    public Guid Id { get; private set; }
     
-    public string ApplicationNumber { get; set; }
+    public string ApplicationNumber { get; private set; }
     
-    public DateTime Date { get; set; }
+    public DateTime Date { get; private set; }
+
+    public List<ReceiptItem> Items { get; private set; } = new();
 
     public static ReceiptDocument Create(Guid id, string applicationNumber, DateTime date)
     {
