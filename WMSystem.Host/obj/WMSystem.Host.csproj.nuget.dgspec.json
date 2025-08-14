@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\repos\\WMS\\WMSystem.Host\\WMSystem.Host.csproj": {}
+    "D:\\repos\\WMSystem\\WMSystem.Host\\WMSystem.Host.csproj": {}
   },
   "projects": {
-    "E:\\repos\\WMS\\WMS.API\\WMS.API.csproj": {
+    "D:\\repos\\WMSystem\\WMS.API\\WMS.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\repos\\WMS\\WMS.API\\WMS.API.csproj",
+        "projectUniqueName": "D:\\repos\\WMSystem\\WMS.API\\WMS.API.csproj",
         "projectName": "WMS.API",
-        "projectPath": "E:\\repos\\WMS\\WMS.API\\WMS.API.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\repos\\WMS\\WMS.API\\obj\\",
+        "projectPath": "D:\\repos\\WMSystem\\WMS.API\\WMS.API.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\WMSystem\\WMS.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj": {
-                "projectPath": "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj"
+              "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj": {
+                "projectPath": "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj"
               }
             }
           }
@@ -75,24 +76,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj": {
+    "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj",
+        "projectUniqueName": "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj",
         "projectName": "WMS.Application",
-        "projectPath": "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\repos\\WMS\\WMS.Application\\obj\\",
+        "projectPath": "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\WMSystem\\WMS.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,14 +102,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj": {
-                "projectPath": "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj"
+              "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj": {
+                "projectPath": "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj"
               }
             }
           }
@@ -150,24 +152,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj": {
+    "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj",
+        "projectUniqueName": "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj",
         "projectName": "WMS.Domain",
-        "projectPath": "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\repos\\WMS\\WMS.Domain\\obj\\",
+        "projectPath": "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\WMSystem\\WMS.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -176,6 +178,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -215,24 +218,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\repos\\WMS\\WMS.Infrastructure\\WMS.Infrastructure.csproj": {
+    "D:\\repos\\WMSystem\\WMS.Infrastructure\\WMS.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\repos\\WMS\\WMS.Infrastructure\\WMS.Infrastructure.csproj",
+        "projectUniqueName": "D:\\repos\\WMSystem\\WMS.Infrastructure\\WMS.Infrastructure.csproj",
         "projectName": "WMS.Infrastructure",
-        "projectPath": "E:\\repos\\WMS\\WMS.Infrastructure\\WMS.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\repos\\WMS\\WMS.Infrastructure\\obj\\",
+        "projectPath": "D:\\repos\\WMSystem\\WMS.Infrastructure\\WMS.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\WMSystem\\WMS.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -241,17 +244,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj": {
-                "projectPath": "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj"
+              "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj": {
+                "projectPath": "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj"
               },
-              "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj": {
-                "projectPath": "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj"
+              "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj": {
+                "projectPath": "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj"
               }
             }
           }
@@ -303,24 +307,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\repos\\WMS\\WMSystem.Host\\WMSystem.Host.csproj": {
+    "D:\\repos\\WMSystem\\WMSystem.Host\\WMSystem.Host.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\repos\\WMS\\WMSystem.Host\\WMSystem.Host.csproj",
+        "projectUniqueName": "D:\\repos\\WMSystem\\WMSystem.Host\\WMSystem.Host.csproj",
         "projectName": "WMSystem.Host",
-        "projectPath": "E:\\repos\\WMS\\WMSystem.Host\\WMSystem.Host.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\repos\\WMS\\WMSystem.Host\\obj\\",
+        "projectPath": "D:\\repos\\WMSystem\\WMSystem.Host\\WMSystem.Host.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\repos\\WMSystem\\WMSystem.Host\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -329,23 +333,24 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\repos\\WMS\\WMS.API\\WMS.API.csproj": {
-                "projectPath": "E:\\repos\\WMS\\WMS.API\\WMS.API.csproj"
+              "D:\\repos\\WMSystem\\WMS.API\\WMS.API.csproj": {
+                "projectPath": "D:\\repos\\WMSystem\\WMS.API\\WMS.API.csproj"
               },
-              "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj": {
-                "projectPath": "E:\\repos\\WMS\\WMS.Application\\WMS.Application.csproj"
+              "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj": {
+                "projectPath": "D:\\repos\\WMSystem\\WMS.Application\\WMS.Application.csproj"
               },
-              "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj": {
-                "projectPath": "E:\\repos\\WMS\\WMS.Domain\\WMS.Domain.csproj"
+              "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj": {
+                "projectPath": "D:\\repos\\WMSystem\\WMS.Domain\\WMS.Domain.csproj"
               },
-              "E:\\repos\\WMS\\WMS.Infrastructure\\WMS.Infrastructure.csproj": {
-                "projectPath": "E:\\repos\\WMS\\WMS.Infrastructure\\WMS.Infrastructure.csproj"
+              "D:\\repos\\WMSystem\\WMS.Infrastructure\\WMS.Infrastructure.csproj": {
+                "projectPath": "D:\\repos\\WMSystem\\WMS.Infrastructure\\WMS.Infrastructure.csproj"
               }
             }
           }
@@ -404,7 +409,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
