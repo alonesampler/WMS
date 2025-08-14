@@ -1,3 +1,9 @@
-﻿namespace WMS.Application.DTOs.ReceiptDocument.Response;
+﻿using WMS.Application.DTOs.ReceiptItem.Response;
 
-public record ReceiptDocumentInfoResponse(string ApplicationNumber, DateTime Date);
+namespace WMS.Application.DTOs.ReceiptDocument.Response;
+
+public record ReceiptDocumentInfoResponse(
+    Guid Id,
+    string ApplicationNumber,
+    DateTime Date,
+    List<ReceiptItemResponse> Items);

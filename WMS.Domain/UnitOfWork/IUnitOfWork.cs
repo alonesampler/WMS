@@ -7,6 +7,8 @@ public interface IUnitOfWork : IDisposable
     public IResourceRepository ResourceRepository { get; }
     public IUnitOfMeasureRepository UnitOfMeasureRepository { get; }
     public IReceiptDocumentRepository ReceiptDocumentRepository { get; }
+    public IReceiptItemRepository ReceiptItemRepository { get; }
+    public IResourceQuantityAggregateRepository ResourceQuantityAggregateRepository { get; }
 
     public Task BeginTransactionAsync();
     public Task CommitAsync();

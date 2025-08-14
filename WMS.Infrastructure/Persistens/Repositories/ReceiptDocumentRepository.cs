@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WMS.Domain.Entities;
 using WMS.Domain.Repositories;
-using WMS.Domain.UnitOfWork;
 
 namespace WMS.Infrastructure.Persistens.Repositories;
 
@@ -13,9 +12,13 @@ public class ReceiptDocumentRepository : IReceiptDocumentRepository
     {
         _dbContext = dbContext;
     }
-    
+
     public async Task<ReceiptDocument?> GetByIdAsync(Guid id) =>
         await _dbContext.ReceiptDocuments
+            .Include(d => d.Items)
+                .ThenInclude(i => i.Resource)
+            .Include(d => d.Items)
+                .ThenInclude(i => i.UnitOfMeasure)
             .AsNoTracking()
             .FirstOrDefaultAsync(r => r.Id == id);
 
@@ -34,27 +37,35 @@ public class ReceiptDocumentRepository : IReceiptDocumentRepository
         return Task.CompletedTask;
     }
 
-    public async Task<IEnumerable<ReceiptDocument>> GetAllWithFiltersAsync(DateTime? startDate = null, DateTime? endDate = null,
-        string? applicationNumberFilter = null)
+    public async Task<IEnumerable<ReceiptDocument>> GetAllWithFiltersAsync(
+        DateTime? startDate = null,
+        DateTime? endDate = null,
+        string? applicationNumberFilter = null,
+        string? resourceTitleFilter = null,
+        string? unitOfMeasureTitleFilter = null)
     {
-        var query = _dbContext.ReceiptDocuments.AsQueryable();
-        
-        if(startDate.HasValue)
-            query = query.Where(r => r.Date >= startDate.Value);
+        var query = _dbContext.ReceiptDocuments
+            .Include(d => d.Items)
+                .ThenInclude(i => i.Resource)
+            .Include(d => d.Items)
+                .ThenInclude(i => i.UnitOfMeasure)
+            .AsQueryable();
+
+        if (startDate.HasValue)
+            query = query.Where(d => d.Date >= startDate);
 
         if (endDate.HasValue)
-        {
-            var endDateInclusive = endDate.Value.Date.AddDays(1);
-            query = query.Where(r => r.Date < endDate.Value);
-        }
-        
+            query = query.Where(d => d.Date <= endDate);
+
         if (!string.IsNullOrWhiteSpace(applicationNumberFilter))
-        {
-            query = query.Where(x => x.ApplicationNumber.Contains(applicationNumberFilter));
-        }
-        
-        query = query.OrderByDescending(x => x.Date);
-        
-        return await query.ToListAsync();
+            query = query.Where(d => d.ApplicationNumber.Contains(applicationNumberFilter));
+
+        if (!string.IsNullOrWhiteSpace(resourceTitleFilter))
+            query = query.Where(d => d.Items.Any(i => i.Resource.Title.Contains(resourceTitleFilter)));
+
+        if (!string.IsNullOrWhiteSpace(unitOfMeasureTitleFilter))
+            query = query.Where(d => d.Items.Any(i => i.UnitOfMeasure.Title.Contains(unitOfMeasureTitleFilter)));
+
+        return await query.AsNoTracking().ToListAsync();
     }
 }

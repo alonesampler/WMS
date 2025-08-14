@@ -15,5 +15,10 @@ public class ReceiptDocumentConfiguration : IEntityTypeConfiguration<ReceiptDocu
         
         builder.Property(x => x.Date)
             .IsRequired();
+
+        builder.HasMany(d => d.Items)
+               .WithOne(i => i.ReceiptDocument)
+               .HasForeignKey(i => i.ReceiptDocumentId)
+               .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MWS.Domain.Entities;
 using WMS.Domain.Entities;
 
 namespace WMS.Infrastructure.Persistens;
@@ -16,6 +17,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<Resource> Resources { get; set; }
     public DbSet<UnitOfMeasure> UnitOfMeasures { get; set; }
     public DbSet<ReceiptDocument> ReceiptDocuments { get; set; }
+    public DbSet<ReceiptItem> ReceiptItems { get; set; }
+    public DbSet<ResourceQuantityAggregate> ResourceQuantityAggregates { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

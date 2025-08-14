@@ -1,16 +1,19 @@
 ﻿using FluentResults;
 using WMS.Application.DTOs.ReceiptDocument.Request;
+using WMS.Application.DTOs.ReceiptDocument.Response;
 using WMS.Domain.Entities;
 
 namespace WMS.Application.Services.Abstractions;
-public interface IReceiptDocumentService
+public interface IReceiptsService
 {
-    Task<Result<Guid>> CreateAsync(ReceiptDocumentParamsRequest @params);
+    Task<Result> CreateAsync(ReceiptDocumentParamsRequest @params);
     Task<Result> DeleteAsync(Guid id);
-    Task<Result<List<ReceiptDocument>>> GetAllWithFiltersAsync(
+    Task<Result<List<ReceiptDocumentInfoResponse>>> GetAllWithFiltersAsync(
         DateTime? startDate = null,
         DateTime? endDate = null,
-        string? applicationNumberFilter = null);
+        string? applicationNumberFilter = null,
+        string? resourceTitleFilter = null,
+        string? unitOfMeasureTitleFilter = null);
     Task<Result<ReceiptDocument>> GetByIdAsync(Guid id);
     Task<Result> UpdateAsync(Guid id, ReceiptDocumentParamsRequest @params);
 }

@@ -12,22 +12,30 @@ public class PostgresUnitOfWork : IUnitOfWork
     private readonly IResourceRepository _resourceRepository;
     private readonly IUnitOfMeasureRepository _unitOfMeasureRepository;
     private readonly IReceiptDocumentRepository _receiptDocumentRepository;
+    private readonly IReceiptItemRepository _receiptItemRepository;
+    private readonly IResourceQuantityAggregateRepository _resourceQuantityAggregateRepository;
 
     public PostgresUnitOfWork(
         ApplicationDbContext dbContext,
         IReceiptDocumentRepository receiptDocumentRepository,
         IResourceRepository resourceRepository,
-        IUnitOfMeasureRepository unitOfMeasureRepository)
+        IUnitOfMeasureRepository unitOfMeasureRepository,
+        IReceiptItemRepository receiptItemRepository,
+        IResourceQuantityAggregateRepository resourceQuantityAggregateRepository)
     {
         _dbContext = dbContext;
         _resourceRepository = resourceRepository;
         _receiptDocumentRepository = receiptDocumentRepository;
         _unitOfMeasureRepository = unitOfMeasureRepository;
+        _receiptItemRepository = receiptItemRepository;
+        _resourceQuantityAggregateRepository = resourceQuantityAggregateRepository;
     }
     
     public IResourceRepository ResourceRepository => _resourceRepository;
     public IUnitOfMeasureRepository UnitOfMeasureRepository => _unitOfMeasureRepository;
     public IReceiptDocumentRepository ReceiptDocumentRepository => _receiptDocumentRepository;
+    public IResourceQuantityAggregateRepository ResourceQuantityAggregateRepository => _resourceQuantityAggregateRepository;
+    public IReceiptItemRepository ReceiptItemRepository => _receiptItemRepository;
 
     public async Task BeginTransactionAsync()
     {

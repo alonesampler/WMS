@@ -9,9 +9,9 @@ namespace WMS.API.Controllers.V1;
 [Route("v1/ReceiptDocuments")]
 public class ReceiptDocumentsController : ControllerBase
 {
-    private readonly IReceiptDocumentService _receiptDocumentService;
+    private readonly IReceiptsService _receiptDocumentService;
 
-    public ReceiptDocumentsController(IReceiptDocumentService receiptDocumentService)
+    public ReceiptDocumentsController(IReceiptsService receiptDocumentService)
     {
         _receiptDocumentService = receiptDocumentService;
     }

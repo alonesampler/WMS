@@ -10,7 +10,7 @@ internal static class ApplicationConfigurator
     {
         services.AddScoped<IResourceService, ResourcesService>();
         services.AddScoped<IUnitOfMeasureService, UnitOfMeasuresService>();
-        services.AddScoped<IReceiptDocumentService, ReceiptDocumentService>();
+        services.AddScoped<IReceiptsService, ReceiptsService>();
 
         return services;
     }
