@@ -1,36 +1,37 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WMS.Application.DTOs.ReceiptDocument.Request;
+using WMS.Application.DTOs.ReceiptDocument.Response;
 using WMS.Application.Services.Abstractions;
 using WMS.Domain.Entities;
 
 namespace WMS.API.Controllers.V1;
 
 [ApiController]
-[Route("v1/ReceiptDocuments")]
-public class ReceiptDocumentsController : ControllerBase
+[Route("v1/Receipts")]
+public class ReceiptController : ControllerBase
 {
-    private readonly IReceiptsService _receiptDocumentService;
+    private readonly IReceiptsService _receiptService;
 
-    public ReceiptDocumentsController(IReceiptsService receiptDocumentService)
+    public ReceiptController(IReceiptsService receiptService)
     {
-        _receiptDocumentService = receiptDocumentService;
+        _receiptService = receiptService;
     }
     
     [HttpPost]
-    public async Task<ActionResult<Guid>> CreateAsync([FromBody] ReceiptDocumentParamsRequest @params)
+    public async Task<ActionResult> CreateAsync([FromBody] ReceiptDocumentParamsRequest @params)
     {
-        var result = await _receiptDocumentService.CreateAsync(@params);
+        var result = await _receiptService.CreateAsync(@params);
         
         if (result.IsFailed)
             return BadRequest(result.Errors.Select(e => e.Message));
 
-        return Ok(result.Value);
+        return Ok();
     }
 
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<ReceiptDocument>> GetByIdAsync(Guid id)
     {
-        var result = await _receiptDocumentService.GetByIdAsync(id);
+        var result = await _receiptService.GetByIdAsync(id);
         
         if (result.IsFailed)
             return NotFound(result.Errors.Select(e => e.Message));
@@ -41,7 +42,7 @@ public class ReceiptDocumentsController : ControllerBase
     [HttpDelete("{id:guid}")]
     public async Task<ActionResult> DeleteAsync(Guid id)
     {
-        var result = await _receiptDocumentService.DeleteAsync(id);
+        var result = await _receiptService.DeleteAsync(id);
         
         if (result.IsFailed)
             return NotFound(result.Errors.Select(e => e.Message));
@@ -52,7 +53,7 @@ public class ReceiptDocumentsController : ControllerBase
     [HttpPut("{id:guid}")]
     public async Task<ActionResult> Update(Guid id, [FromBody] ReceiptDocumentParamsRequest @params)
     {
-        var result = await _receiptDocumentService.UpdateAsync(id, @params);
+        var result = await _receiptService.UpdateAsync(id, @params);
         
         if (result.IsFailed)
         {
@@ -65,20 +66,22 @@ public class ReceiptDocumentsController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<List<ReceiptDocument>>> GetAllWithFilters(
+    public async Task<ActionResult<List<ReceiptDocumentInfoResponse>>> GetAllWithFilters(
         [FromQuery] DateTime? startDate = null,
         [FromQuery] DateTime? endDate = null,
-        [FromQuery] string? applicationNumber = null)
+        [FromQuery] string? applicationNumberFilter = null,
+        [FromQuery] string? resourceTitleFilter = null,
+        [FromQuery] string? unitOfMeasureTitleFilter = null)
     {
-        var result = await _receiptDocumentService.GetAllWithFiltersAsync(
+        var result = await _receiptService.GetAllWithFiltersAsync(
             startDate,
             endDate,
-            applicationNumber);
+            applicationNumberFilter,
+            resourceTitleFilter,
+            unitOfMeasureTitleFilter);
 
         if (result.IsFailed)
-        {
             return BadRequest(result.Errors.Select(e => e.Message));
-        }
         
         return Ok(result.Value);
     }

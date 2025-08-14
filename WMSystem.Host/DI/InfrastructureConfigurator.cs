@@ -27,6 +27,8 @@ internal static class InfrastructureConfigurator
         services.AddScoped<IUnitOfMeasureRepository, UnitOfMeasureRepository>();
         services.AddScoped<IResourceRepository, ResourceRepository>();
         services.AddScoped<IReceiptDocumentRepository, ReceiptDocumentRepository>();
+        services.AddScoped<IReceiptItemRepository, ReceiptItemRepository>();
+        services.AddScoped<IResourceQuantityAggregateRepository, ResourceQuantityAggregateRepository>();
         services.AddScoped<IUnitOfWork, PostgresUnitOfWork>();
     }
 
