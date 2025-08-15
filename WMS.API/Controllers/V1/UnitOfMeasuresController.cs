@@ -8,7 +8,7 @@ using WMS.Domain.Enums;
 namespace WMS.API.Controllers.V1;
 
 [ApiController]
-[Route("v1/UnitOfMeasures")]
+[Route("api/v1/unit-of-measures")]
 public class UnitOfMeasuresController : ControllerBase
 {
     private readonly IUnitOfMeasureService _unitOfMeasureService;

@@ -7,12 +7,12 @@ using WMS.Domain.Entities;
 namespace WMS.API.Controllers.V1;
 
 [ApiController]
-[Route("v1/Receipts")]
-public class ReceiptController : ControllerBase
+[Route("api/v1/receipts")]
+public class ReceiptsController : ControllerBase
 {
     private readonly IReceiptsService _receiptService;
 
-    public ReceiptController(IReceiptsService receiptService)
+    public ReceiptsController(IReceiptsService receiptService)
     {
         _receiptService = receiptService;
     }

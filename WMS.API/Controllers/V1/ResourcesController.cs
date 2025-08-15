@@ -8,7 +8,7 @@ using WMS.Domain.Enums;
 namespace WMS.API.Controllers.V1;
 
 [ApiController]
-[Route("v1/Resources")]
+[Route("api/v1/resources")]
 public class ResourcesController : ControllerBase
 {
     private readonly IResourceService _resourceService;
