@@ -1,0 +1,136 @@
+﻿<div class="warehouse-sidebar">
+    <div class="ws-topbar">
+        <i class="bi bi-box-seam"></i>
+        <span>Управление складом</span>
+    </div>
+
+    <div class="ws-content">
+        <div class="ws-section">
+            <h2 class="ws-section-title">
+                <i class="bi bi-house-gear"></i>Склад
+            </h2>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <NavLink class="nav-link ws-item" href="/balances" Match="NavLinkMatch.Prefix">
+                        <i class="bi bi-clipboard2-pulse"></i>Баланс
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link ws-item" href="/receipts" Match="NavLinkMatch.Prefix">
+                        <i class="bi bi-box-arrow-in-down"></i>Поступления
+                    </NavLink>
+                </li>
+            </ul>
+        </div>
+
+        <div class="ws-section">
+            <h2 class="ws-section-title">
+                <i class="bi bi-book"></i>Справочники
+            </h2>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <NavLink class="nav-link ws-item" href="/unit-of-measures" Match="NavLinkMatch.Prefix">
+                        <i class="bi bi-rulers"></i>Единицы измерения
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link ws-item" href="/resources" Match="NavLinkMatch.Prefix">
+                        <i class="bi bi-boxes"></i>Ресурсы
+                    </NavLink>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --sidebar-bg: linear-gradient(180deg, #0d6efd 0%, #062b63 100%);
+        --sidebar-text: #ffffff;
+        --item-hover-bg: rgba(255, 255, 255, 0.15);
+        --item-active-bg: rgba(255, 255, 255, 0.25);
+        --transition-speed: 0.25s;
+    }
+
+    .warehouse-sidebar {
+        width: 260px;
+        height: 100vh;
+        color: var(--sidebar-text);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .ws-topbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .ws-topbar i {
+        font-size: 1.4rem;
+    }
+
+    .ws-content {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+    }
+
+    .ws-section {
+        margin-bottom: 2rem;
+    }
+
+    .ws-section-title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        opacity: 0.8;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 0.8rem;
+        letter-spacing: 0.3px;
+    }
+
+    .ws-section-title i {
+        font-size: 1rem;
+    }
+
+    .ws-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.95rem;
+    }
+
+    .ws-item:hover {
+        transform: translateX(4px);
+    }
+
+    .ws-item.active {
+        font-weight: 600;
+    }
+
+    .ws-item i {
+        font-size: 1.1rem;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    /* Стили скроллбара */
+    .ws-content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .ws-content::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+    }
+</style>
