@@ -28,8 +28,12 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/repos/WMS/WMS.UI/Pages/Receipts.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjZWlwdHMucmF6b3I=
+[E:/repos/WMS/WMS.UI/Pages/CreateResource.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlUmVzb3VyY2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/repos/WMS/WMS.UI/Pages/EditResource.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFJlc291cmNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/repos/WMS/WMS.UI/Pages/Resources.razor]

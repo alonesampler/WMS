@@ -1,1 +1,77 @@
-﻿
+﻿@page "/resources"
+@using BlazorClient.Services
+@using WMS.UI.Models.Enums
+@using WMS.UI.Models.Resource.Response
+@inject ResourceService ResourceService
+@inject NavigationManager NavigationManager
+
+<h3>Ресурсы</h3>
+
+<div class="resource-actions">
+    <div class="state-buttons">
+        <button @onclick="() => LoadResources(State.Working)" class="@(currentState == State.Working ? "active" : "")">Рабочие</button>
+        <button @onclick="() => LoadResources(State.Archived)" class="@(currentState == State.Archived ? "active" : "")">Архивные</button>
+    </div>
+    <button @onclick="NavigateToCreate" class="add-button">Добавить</button>
+</div>
+
+@if (isLoading)
+{
+    <p>Загрузка...</p>
+}
+else if (!resources.Any())
+{
+    <p>Нет ресурсов</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Наименование</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var resource in resources)
+        {
+            <tr>
+                <td>
+                    <button @onclick="() => NavigateToReceipt(resource.Id)" 
+                            class="resource-button">
+                        @resource.Title
+                    </button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ResourceResponse> resources = new();
+    private bool isLoading = true;
+    private State currentState = State.Working;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadResources(currentState);
+    }
+
+    private async Task LoadResources(State state)
+    {
+        isLoading = true;
+        currentState = state;
+        resources = await ResourceService.GetByStateAsync(state);
+        isLoading = false;
+    }
+
+    private void NavigateToCreate()
+    {
+        NavigationManager.NavigateTo("/resources/create");
+    }
+
+    private void NavigateToReceipt(Guid id)
+    {
+        NavigationManager.NavigateTo($"/resources/edit/{id}");
+    }
+}

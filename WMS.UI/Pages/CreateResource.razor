@@ -1,0 +1,137 @@
+﻿@page "/resources/create"
+@using BlazorClient.Services
+@using WMS.UI.Models.Resource
+@using WMS.UI.Models.Resource.Request
+@using WMS.UI.Models.Enums
+@inject ResourceService ResourceService
+@inject NavigationManager NavigationManager
+
+<h3>@(IsEditMode ? "Редактирование ресурса" : "Добавление ресурса")</h3>
+
+<div class="create-form">
+    @if (IsEditMode)
+    {
+        <div class="form-group">
+            <label>ID:</label>
+            <input class="form-control" value="@Id" readonly />
+        </div>
+    }
+    
+    <div class="form-group">
+        <label>Наименование:</label>
+        <input @bind="resourceTitle" class="form-control" />
+    </div>
+    
+    @if (IsEditMode)
+    {
+        <div class="form-group">
+            <label>Статус:</label>
+            <input class="form-control" value="@currentState" readonly />
+        </div>
+    }
+
+    <div class="form-actions">
+        @if (IsEditMode)
+        {
+            <button @onclick="HandleDelete" class="btn-delete">Удалить</button>
+            <button @onclick="HandleToggleArchive" class="btn-archive">
+                @(currentState == State.Archived ? "В работу" : "В архив")
+            </button>
+            <button @onclick="HandleUpdate" class="btn-save">Обновить</button>
+        }
+        else
+        {
+            <button @onclick="HandleCreate" class="btn-save">Создать</button>
+        }
+        <button @onclick="HandleCancel" class="btn-cancel">Отмена</button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private string resourceTitle = string.Empty;
+    private State currentState = State.Working;
+    private bool IsEditMode => Id != Guid.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IsEditMode)
+        {
+            await LoadResourceData();
+        }
+    }
+
+    private async Task LoadResourceData()
+    {
+        var resource = await ResourceService.GetByIdAsync(Id);
+        if (resource != null)
+        {
+            resourceTitle = resource.Title;
+            currentState = resource.State;
+        }
+    }
+
+    private async Task HandleCreate()
+    {
+        if (!string.IsNullOrWhiteSpace(resourceTitle))
+        {
+            var request = new ResourceParamsRequest(resourceTitle);
+            var result = await ResourceService.CreateAsync(request);
+            
+            if (result)
+            {
+                NavigationManager.NavigateTo("/resources");
+            }
+        }
+    }
+
+    private async Task HandleUpdate()
+    {
+        if (!string.IsNullOrWhiteSpace(resourceTitle))
+        {
+            var request = new ResourceParamsRequest(resourceTitle);
+            var result = await ResourceService.UpdateAsync(Id, request);
+            
+            if (result)
+            {
+                NavigationManager.NavigateTo("/resources");
+            }
+        }
+    }
+
+    private async Task HandleDelete()
+    {
+        var result = await ResourceService.DeleteAsync(Id);
+        if (result)
+        {
+            NavigationManager.NavigateTo("/resources");
+        }
+    }
+
+    private async Task HandleToggleArchive()
+    {
+        bool result;
+        if (currentState == State.Archived)
+        {
+            result = await ResourceService.RestoreAsync(Id);
+            currentState = State.Working;
+        }
+        else
+        {
+            result = await ResourceService.ArchiveAsync(Id);
+            currentState = State.Archived;
+        }
+        
+        if (result)
+        {
+            StateHasChanged();
+        }
+    }
+
+    private void HandleCancel()
+    {
+        NavigationManager.NavigateTo("/resources");
+    }
+}

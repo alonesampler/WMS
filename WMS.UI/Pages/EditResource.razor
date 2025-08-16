@@ -1,0 +1,136 @@
+﻿@page "/resources/edit/{Id}"
+@using BlazorClient.Services
+@using WMS.UI.Models.Enums
+@using WMS.UI.Models.Resource
+@using WMS.UI.Models.Resource.Request
+@inject ResourceService ResourceService
+@inject NavigationManager NavigationManager
+
+@if (isLoading)
+{
+    <p>Загрузка...</p>
+}
+else if (resource == null)
+{
+    <p>Ресурс не найден</p>
+}
+else
+{
+    <h3>Редактирование ресурса</h3>
+
+    <div class="create-form">
+        <div class="form-group">
+            <label>ID:</label>
+            <input class="form-control" value="@resource.Id" readonly />
+        </div>
+        
+        <div class="form-group">
+            <label>Наименование:</label>
+            <input @bind="editTitle" class="form-control" />
+        </div>
+        
+        <div class="form-group">
+            <label>Статус:</label>
+            <input class="form-control" value="@resource.State" readonly />
+        </div>
+
+        <div class="form-actions">
+            <button @onclick="DeleteResource" class="btn-delete">Удалить</button>
+            <button @onclick="ToggleArchive" class="btn-archive">
+                @(resource.State == State.Archived ? "В работу" : "В архив")
+            </button>
+            <button @onclick="UpdateResource" class="btn-save">Обновить</button>
+            <button @onclick="Cancel" class="btn-cancel">Отмена</button>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string Id { get; set; }  // Теперь принимаем string
+
+    private Resource? resource;
+    private string editTitle = string.Empty;
+    private bool isLoading = true;
+    private Guid resourceId;  // Здесь храним Guid
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Guid.TryParse(Id, out var parsedId))
+        {
+            resourceId = parsedId;
+            await LoadResource();
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/resources");
+        }
+    }
+
+    private async Task LoadResource()
+    {
+        isLoading = true;
+        try
+        {
+            resource = await ResourceService.GetByIdAsync(resourceId);
+            if (resource != null)
+            {
+                editTitle = resource.Title;
+            }
+        }
+        catch
+        {
+            // Обработка ошибки
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task UpdateResource()
+    {
+        if (resource == null || string.IsNullOrWhiteSpace(editTitle)) return;
+
+        var request = new ResourceParamsRequest(editTitle);
+        var success = await ResourceService.UpdateAsync(resource.Id, request);
+        
+        if (success)
+        {
+            NavigationManager.NavigateTo("/resources");
+        }
+    }
+
+    private async Task DeleteResource()
+    {
+        if (resource == null) return;
+        
+        var success = await ResourceService.DeleteAsync(resource.Id);
+        if (success) NavigationManager.NavigateTo("/resources");
+    }
+
+    private async Task ToggleArchive()
+    {
+        if (resource == null) return;
+        
+        bool success;
+        if (resource.State == State.Archived)
+        {
+            success = await ResourceService.RestoreAsync(resource.Id);
+        }
+        else
+        {
+            success = await ResourceService.ArchiveAsync(resource.Id);
+        }
+        
+        if (success)
+        {
+            await LoadResource();
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/resources");
+    }
+}
