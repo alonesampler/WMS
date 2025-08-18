@@ -1,16 +1,16 @@
-﻿@page "/resources"
+﻿@page "/unit-of-measures"
 @using BlazorClient.Services
 @using WMS.UI.Models.Enums
-@using WMS.UI.Models.Resource.Response
-@inject ResourceService ResourceService
+@using WMS.UI.Models.UnitOfMeasure.Response
+@inject UnitOfMeasureService UnitOfMeasureService
 @inject NavigationManager NavigationManager
 
-<h3>Ресурсы</h3>
+<h3>Еденицы измерения</h3>
 
 <div class="resource-actions">
     <div class="state-buttons">
-        <button @onclick="() => LoadResources(State.Working)" class="@(currentState == State.Working ? "active" : "")">Рабочие</button>
-        <button @onclick="() => LoadResources(State.Archived)" class="@(currentState == State.Archived ? "active" : "")">Архивные</button>
+        <button @onclick="() => LoadUnitOfMeasures(State.Working)" class="@(currentState == State.Working ? "active" : "")">Рабочие</button>
+        <button @onclick="() => LoadUnitOfMeasures(State.Archived)" class="@(currentState == State.Archived ? "active" : "")">Архивные</button>
     </div>
     <button @onclick="NavigateToCreate" class="add-button">Добавить</button>
 </div>
@@ -19,9 +19,9 @@
 {
     <p>Загрузка...</p>
 }
-else if (!resources.Any())
+else if (!unitOfMeasures.Any())
 {
-    <p>Нет ресурсов</p>
+    <p>Нет едениц измерения</p>
 }
 else
 {
@@ -32,7 +32,7 @@ else
         </tr>
         </thead>
         <tbody>
-        @foreach (var resource in resources)
+        @foreach (var resource in unitOfMeasures)
         {
             <tr>
                 <td>
@@ -48,30 +48,30 @@ else
 }
 
 @code {
-    private List<ResourceResponse> resources = new();
+    private List<UnitOfMeasureResponse> unitOfMeasures = new();
     private bool isLoading = true;
     private State currentState = State.Working;
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadResources(currentState);
+        await LoadUnitOfMeasures(currentState);
     }
 
-    private async Task LoadResources(State state)
+    private async Task LoadUnitOfMeasures(State state)
     {
         isLoading = true;
         currentState = state;
-        resources = await ResourceService.GetByStateAsync(state);
+        unitOfMeasures = await UnitOfMeasureService.GetByStateAsync(state);
         isLoading = false;
     }
 
     private void NavigateToCreate()
     {
-        NavigationManager.NavigateTo("/resource/create");
+        NavigationManager.NavigateTo("/unit-of-measure/create");
     }
 
     private void NavigateToReceipt(Guid id)
     {
-        NavigationManager.NavigateTo($"/resource/edit/{id}");
+        NavigationManager.NavigateTo($"/unit-of-measure/edit/{id}");
     }
 }

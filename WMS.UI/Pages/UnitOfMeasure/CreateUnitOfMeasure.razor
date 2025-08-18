@@ -1,0 +1,45 @@
+﻿@page "/unit-of-measure/create"
+@using BlazorClient.Services
+@using WMS.UI.Models.UnitOfMeasure.Request
+@inject UnitOfMeasureService UnitOfMeasureService
+@inject NavigationManager NavigationManager
+
+<h3>Добавление еденицы измерения</h3>
+
+<div class="create-form">
+    <div class="form-group">
+        <label>Наименование:</label>
+        <input @bind="unitOfMeasureTitle" class="form-control" />
+    </div>
+    
+    <div class="form-actions">
+        <button @onclick="HandleCreate" class="btn-save">Создать</button>
+        <button @onclick="HandleCancel" class="btn-cancel">Отмена</button>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private string unitOfMeasureTitle = string.Empty;
+    
+    private async Task HandleCreate()
+    {
+        if (!string.IsNullOrWhiteSpace(unitOfMeasureTitle))
+        {
+            var request = new UnitOfMeasureParamsRequest(unitOfMeasureTitle);
+            var result = await UnitOfMeasureService.CreateAsync(request);
+            
+            if (result)
+            {
+                NavigationManager.NavigateTo("/unit-of-measures");
+            }
+        }
+    }
+    
+    private void HandleCancel()
+    {
+        NavigationManager.NavigateTo("/unit-of-measures");
+    }
+}

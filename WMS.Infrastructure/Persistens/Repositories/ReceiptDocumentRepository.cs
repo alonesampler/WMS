@@ -16,9 +16,9 @@ public class ReceiptDocumentRepository : IReceiptDocumentRepository
     public async Task<ReceiptDocument?> GetByIdAsync(Guid id) =>
         await _dbContext.ReceiptDocuments
             .Include(d => d.Items)
-                .ThenInclude(i => i.Resource)
+            .ThenInclude(i => i.Resource)
             .Include(d => d.Items)
-                .ThenInclude(i => i.UnitOfMeasure)
+            .ThenInclude(i => i.UnitOfMeasure)
             .AsNoTracking()
             .FirstOrDefaultAsync(r => r.Id == id);
 

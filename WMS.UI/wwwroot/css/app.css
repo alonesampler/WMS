@@ -75,19 +75,19 @@ a, .btn-link {
     margin: 20vh auto 1rem auto;
 }
 
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
+.loading-progress circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
 
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
+.loading-progress circle:last-child {
+    stroke: #1b6ec2;
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.05s ease-in-out;
+}
 
 .loading-progress-text {
     position: absolute;
@@ -297,7 +297,6 @@ code {
     background-color: #f8f9fa;
 }
 
-/* Стили для кнопок */
 .add-button {
     background-color: #28a745;
     color: white;
@@ -335,7 +334,6 @@ button {
     cursor: pointer;
 }
 
-/* Форма добавления */
 .add-form {
     margin: 1rem 0;
     padding: 1rem;
@@ -357,7 +355,6 @@ button {
     width: 100%;
 }
 
-/* Группировка кнопок действий */
 .action-buttons {
     display: flex;
     gap: 0.25rem;
@@ -389,7 +386,6 @@ button:hover {
     opacity: 0.9;
 }
 
-/* Основные стили таблицы */
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -405,11 +401,10 @@ button:hover {
     background-color: #f8f9fa;
 }
 
-/* Стили для кнопок */
 .add-button {
     background-color: #28a745;
     color: white;
-    border: none;
+    border: black;
     padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
     cursor: pointer;
@@ -435,15 +430,6 @@ button:hover {
     color: white;
 }
 
-button {
-    padding: 0.375rem 0.75rem;
-    border: none;
-    border-radius: 0.25rem;
-    margin: 0 0.25rem;
-    cursor: pointer;
-}
-
-/* Форма добавления */
 .add-form {
     margin: 1rem 0;
     padding: 1rem;
@@ -465,13 +451,11 @@ button {
     width: 100%;
 }
 
-/* Группировка кнопок действий */
 .action-buttons {
     display: flex;
     gap: 0.25rem;
 }
 
-/* Стили для кнопок */
 .resource-actions {
     display: flex;
     justify-content: space-between;
@@ -527,4 +511,386 @@ button {
 .btn-cancel {
     background-color: #6c757d;
     color: white;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.btn-filter {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.btn-cancel {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.receipt-items {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.receipt-item {
+    padding: 3px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+.receipts-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.receipts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.receipts-table th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+.receipts-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.document-separator {
+    background-color: #f8f9fa;
+}
+
+.document-separator td {
+    border-bottom: 2px solid #ccc;
+    padding: 10px 12px;
+}
+
+.item-row:hover {
+    background-color: #f5f5f5;
+}
+
+.number-col {
+    width: 15%;
+}
+
+.date-col {
+    width: 15%;
+}
+
+.resource-col {
+    width: 30%;
+}
+
+.unit-col {
+    width: 20%;
+}
+
+.quantity-col {
+    width: 20%;
+    text-align: right;
+}
+
+/* Фильтры (остаются как в предыдущем примере) */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.btn-filter {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.btn-cancel {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.page-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.form-control {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+/* Стили документа */
+.document-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.document-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.document-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+}
+
+.document-number {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.document-date {
+    color: #7f8c8d;
+}
+
+.document-body {
+    padding: 0;
+}
+
+.document-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.header-row {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+.resource-col {
+    flex: 3;
+    padding: 10px 15px;
+}
+
+.unit-col {
+    flex: 1;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.quantity-col {
+    flex: 1;
+    padding: 10px 15px;
+    text-align: right;
+    font-family: monospace;
+}
+
+.loading, .no-data {
+    padding: 20px;
+    text-align: center;
+    color: #7f8c8d;
+}
+
+.page-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.create-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.items-section {
+    margin: 25px 0;
+}
+
+.item-card {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background: #f9f9f9;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #218838;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }

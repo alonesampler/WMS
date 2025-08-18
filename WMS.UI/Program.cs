@@ -1,10 +1,8 @@
-using System;
-using System.Net.Http;
 using BlazorClient.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using WMS.UI;
+using WMS.UI.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
@@ -14,6 +12,9 @@ builder.Services.AddScoped(sp => new HttpClient
 });
 
 builder.Services.AddScoped<ResourceService>();
+builder.Services.AddScoped<UnitOfMeasureService>();
+builder.Services.AddScoped<ReceiptsService>();
+
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 

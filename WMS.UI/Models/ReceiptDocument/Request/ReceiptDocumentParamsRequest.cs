@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using WMS.UI.Models.ReceiptItem.Request;
+﻿using WMS.UI.Models.ReceiptItem.Request;
 
 namespace WMS.UI.Models.ReceiptDocument.Request;
 

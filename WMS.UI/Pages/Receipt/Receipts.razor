@@ -1,0 +1,132 @@
+﻿@page "/receipts"
+@using WMS.Application.DTOs.ReceiptDocument.Response
+@using WMS.UI.Services
+@inject ReceiptsService ReceiptsService
+@inject NavigationManager NavigationManager
+
+<h3 class="page-title">Документы поступления</h3>
+
+<div class="filters">
+    <div class="filter-group">
+        <label>Дата от:</label>
+        <input type="date" @bind="startDate" @bind:format="yyyy-MM-dd" class="form-control" />
+    </div>
+    
+    <div class="filter-group">
+        <label>Дата до:</label>
+        <input type="date" @bind="endDate" @bind:format="yyyy-MM-dd" class="form-control" />
+    </div>
+    
+    <div class="filter-group">
+        <label>Номер заявки:</label>
+        <input @bind="applicationNumberFilter" class="form-control" />
+    </div>
+    
+    <div class="filter-group">
+        <label>Ресурс:</label>
+        <input @bind="resourceTitleFilter" class="form-control" />
+    </div>
+    
+    <div class="filter-group">
+        <label>Ед. измерения:</label>
+        <input @bind="unitOfMeasureTitleFilter" class="form-control" />
+    </div>
+    
+    <button @onclick="LoadReceipts" class="btn btn-primary">Применить</button>
+    <button @onclick="ResetFilters" class="btn btn-secondary">Сбросить</button>
+    <button @onclick="NavigateToCreate" class="btn btn-add">
+        <i class="fas fa-plus"></i> Добавить
+    </button>
+</div>
+
+@if (receipts == null)
+{
+    <p class="loading">Загрузка...</p>
+}
+else if (!receipts.Any())
+{
+    <p class="no-data">Нет документов поступления</p>
+}
+else
+{
+    <div class="document-container">
+        @foreach (var receipt in receipts)
+        {
+            <div class="document-card">
+                <div class="document-header">
+                    <a @onclick="() => NavigateToEdit(receipt.Id)" class="document-number">@receipt.ApplicationNumber</a>
+                    <span class="document-date">@receipt.Date.ToString("dd.MM.yyyy")</span>
+                </div>
+                
+                <div class="document-body">
+                    <div class="document-row header-row">
+                        <div class="resource-col">Ресурс</div>
+                        <div class="unit-col">Ед.изм</div>
+                        <div class="quantity-col">Кол-во</div>
+                    </div>
+                    
+                    @foreach (var item in receipt.Items)
+                    {
+                        <div class="document-row">
+                            <div class="resource-col">@item.ResourceTitle</div>
+                            <div class="unit-col">@item.UnitOfMeasureTitle</div>
+                            <div class="quantity-col">@item.Quantity</div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<ReceiptDocumentInfoResponse>? receipts;
+    private DateTime? startDate;
+    private DateTime? endDate;
+    private string? applicationNumberFilter;
+    private string? resourceTitleFilter;
+    private string? unitOfMeasureTitleFilter;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadReceipts();
+    }
+
+    private async Task LoadReceipts()
+    {
+        receipts = await ReceiptsService.GetAllWithFiltersAsync(
+            startDate,
+            endDate,
+            applicationNumberFilter,
+            resourceTitleFilter,
+            unitOfMeasureTitleFilter);
+    }
+
+    private async Task ResetFilters()
+    {
+        startDate = null;
+        endDate = null;
+        applicationNumberFilter = null;
+        resourceTitleFilter = null;
+        unitOfMeasureTitleFilter = null;
+        await LoadReceipts();
+    }
+    
+    private void NavigateToCreate()
+    {
+        NavigationManager.NavigateTo("/receipt/create");
+    }
+
+    private void NavigateToEdit(Guid id)
+    {
+        NavigationManager.NavigateTo($"/receipt/edit/{id}");
+    }
+
+    private async Task DeleteReceipt(Guid id)
+    {
+        if (await ReceiptsService.DeleteAsync(id))
+        {
+            await LoadReceipts();
+        }
+    }
+}

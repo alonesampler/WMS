@@ -1,0 +1,235 @@
+﻿@page "/receipt/create"
+@using BlazorClient.Services
+@using WMS.UI.Models.Enums
+@using WMS.UI.Models.ReceiptDocument.Request
+@using WMS.UI.Models.ReceiptItem.Request
+@using WMS.UI.Models.Resource.Response
+@using WMS.UI.Models.UnitOfMeasure.Response
+@using WMS.UI.Services
+@inject ILogger<CreateReceipt> Logger
+@inject ReceiptsService ReceiptsService
+@inject ResourceService ResourceService
+@inject UnitOfMeasureService UnitOfMeasureService
+@inject NavigationManager NavigationManager
+
+<h3 class="page-title">Создание документа поступления</h3>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+
+<div class="create-form">
+    <div class="form-group">
+        <label>Номер заявки:</label>
+        <input @bind="applicationNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Дата:</label>
+        <input type="date" @bind="date" class="form-control" />
+    </div>
+
+    <div class="items-section">
+        <h4>Позиции:</h4>
+        
+        @foreach (var (item, index) in items.Select((item, i) => (item, i)))
+        {
+            <div class="item-card">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Ресурс:</label>
+                        <select @bind="item.ResourceId" class="form-control">
+                            <option value="">Выберите ресурс</option>
+                            @foreach (var resource in resources)
+                            {
+                                <option value="@resource.Id">@resource.Title</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ед. измерения:</label>
+                        <select @bind="item.UnitOfMeasureId" class="form-control">
+                            <option value="">Выберите единицу измерения</option>
+                            @foreach (var unit in unitsOfMeasure)
+                            {
+                                <option value="@unit.Id">@unit.Title</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Количество:</label>
+                        <input type="number" @bind="item.Quantity" min="0.01" step="0.01" class="form-control" />
+                    </div>
+
+                    <button type="button" @onclick="() => RemoveItem(index)" class="btn btn-delete">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        }
+
+        <button type="button" @onclick="AddItem" class="btn btn-add">
+            <i class="fas fa-plus"></i> Добавить позицию
+        </button>
+    </div>
+
+    <div class="form-actions">
+        <button @onclick="SubmitForm" class="btn btn-primary" disabled="@isSubmitting">
+            @if (isSubmitting)
+            {
+                <span>Создание...</span>
+            }
+            else
+            {
+                <span>Создать</span>
+            }
+        </button>
+        <button @onclick="Cancel" class="btn btn-secondary">Отмена</button>
+    </div>
+</div>
+
+@code {
+    private string applicationNumber = "";
+    private DateTime date = DateTime.Today;
+    private List<ReceiptItemModel> items = new();
+    
+    private List<ResourceResponse> resources = new();
+    private List<UnitOfMeasureResponse> unitsOfMeasure = new();
+    
+    private bool isSubmitting = false;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadResources();
+        await LoadUnitsOfMeasure();
+        // Убрали автоматическое добавление пустой позиции
+    }
+
+    private async Task LoadResources()
+    {
+        try
+        {
+            resources = await ResourceService.GetByStateAsync(State.Working);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка при загрузке ресурсов");
+            errorMessage = "Не удалось загрузить список ресурсов";
+        }
+    }
+
+    private async Task LoadUnitsOfMeasure()
+    {
+        try
+        {
+            unitsOfMeasure = await UnitOfMeasureService.GetByStateAsync(State.Working);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка при загрузке единиц измерения");
+            errorMessage = "Не удалось загрузить список единиц измерения";
+        }
+    }
+
+    private void AddItem()
+    {
+        items.Add(new ReceiptItemModel { 
+            ResourceId = Guid.Empty, 
+            UnitOfMeasureId = Guid.Empty, 
+            Quantity = 0 
+        });
+    }
+
+    private void RemoveItem(int index)
+    {
+        items.RemoveAt(index); // Убрали проверку на минимальное количество
+    }
+
+    private async Task SubmitForm()
+    {
+        isSubmitting = true;
+        errorMessage = null;
+        
+        try
+        {
+            // Валидация
+            if (string.IsNullOrWhiteSpace(applicationNumber))
+            {
+                errorMessage = "Номер заявки обязателен для заполнения";
+                return;
+            }
+
+            // Проверяем только заполненные позиции
+            foreach (var item in items)
+            {
+                if (item.ResourceId == Guid.Empty || item.UnitOfMeasureId == Guid.Empty)
+                {
+                    errorMessage = "Для выбранных позиций должны быть указаны ресурс и единица измерения";
+                    return;
+                }
+
+                if (item.Quantity <= 0)
+                {
+                    errorMessage = "Количество должно быть больше 0 для выбранных позиций";
+                    return;
+                }
+            }
+
+            // Конвертируем дату в UTC перед отправкой
+            var utcDate = date.Kind == DateTimeKind.Unspecified 
+                ? DateTime.SpecifyKind(date, DateTimeKind.Utc)
+                : date.ToUniversalTime();
+
+            var request = new ReceiptDocumentParamsRequest(
+                applicationNumber,
+                utcDate,
+                items.Where(i => i.ResourceId != Guid.Empty && i.UnitOfMeasureId != Guid.Empty && i.Quantity > 0)
+                    .Select(i => new ReceiptItemParamsRequest(
+                        i.ResourceId, 
+                        i.UnitOfMeasureId, 
+                        i.Quantity
+                    )).ToList()
+            );
+
+            Logger.LogInformation("Отправка запроса на создание документа: {@Request}", request);
+
+            var result = await ReceiptsService.CreateAsync(request);
+            
+            if (result)
+            {
+                Logger.LogInformation("Документ успешно создан");
+                NavigationManager.NavigateTo("/receipts");
+            }
+            else
+            {
+                errorMessage = "Ошибка при создании документа. Попробуйте снова.";
+                Logger.LogError("Не удалось создать документ");
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Произошла непредвиденная ошибка";
+            Logger.LogError(ex, "Ошибка при создании документа");
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/receipts");
+    }
+
+    private class ReceiptItemModel
+    {
+        public Guid ResourceId { get; set; }
+        public Guid UnitOfMeasureId { get; set; }
+        public decimal Quantity { get; set; }
+    }
+}

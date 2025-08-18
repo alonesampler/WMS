@@ -1,0 +1,136 @@
+﻿@page "/unit-of-measure/edit/{Id}"
+@using BlazorClient.Services
+@using WMS.UI.Models.Enums
+@using WMS.UI.Models.UnitOfMeasure
+@using WMS.UI.Models.UnitOfMeasure.Request
+@inject UnitOfMeasureService UnitOfMeasureService
+@inject NavigationManager NavigationManager
+
+@if (isLoading)
+{
+    <p>Загрузка...</p>
+}
+else if (unitOfMeasure == null)
+{
+    <p>Единица измерения не найдена</p>
+}
+else
+{
+    <h3>Редактирование единицы измерения</h3>
+
+    <div class="create-form">
+        <div class="form-group">
+            <label>ID:</label>
+            <input class="form-control" value="@unitOfMeasure.Id" readonly />
+        </div>
+        
+        <div class="form-group">
+            <label>Наименование:</label>
+            <input @bind="editTitle" class="form-control" />
+        </div>
+        
+        <div class="form-group">
+            <label>Статус:</label>
+            <input class="form-control" value="@unitOfMeasure.State" readonly />
+        </div>
+
+        <div class="form-actions">
+            <button @onclick="DeleteUnit" class="btn-delete">Удалить</button>
+            <button @onclick="ToggleArchive" class="btn-archive">
+                @(unitOfMeasure.State == State.Archived ? "В работу" : "В архив")
+            </button>
+            <button @onclick="UpdateUnit" class="btn-save">Обновить</button>
+            <button @onclick="Cancel" class="btn-cancel">Отмена</button>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private UnitOfMeasure unitOfMeasure;
+    private string editTitle = string.Empty;
+    private bool isLoading = true;
+    private Guid unitOfMeasureId;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Guid.TryParse(Id, out var parsedId))
+        {
+            unitOfMeasureId = parsedId;
+            await LoadUnit();
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/unit-of-measures");
+        }
+    }
+
+    private async Task LoadUnit()
+    {
+        isLoading = true;
+        try
+        {
+            unitOfMeasure = await UnitOfMeasureService.GetByIdAsync(unitOfMeasureId);
+            if (unitOfMeasure != null)
+            {
+                editTitle = unitOfMeasure.Title;
+            }
+        }
+        catch
+        {
+            // Обработка ошибки
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task UpdateUnit()
+    {
+        if (unitOfMeasure == null || string.IsNullOrWhiteSpace(editTitle)) return;
+
+        var request = new UnitOfMeasureParamsRequest(editTitle);
+        var success = await UnitOfMeasureService.UpdateAsync(unitOfMeasure.Id, request);
+        
+        if (success)
+        {
+            NavigationManager.NavigateTo("/unit-of-measures");
+        }
+    }
+
+    private async Task DeleteUnit()
+    {
+        if (unitOfMeasure == null) return;
+        
+        var success = await UnitOfMeasureService.DeleteAsync(unitOfMeasure.Id);
+        if (success) NavigationManager.NavigateTo("/unit-of-measures");
+    }
+
+    private async Task ToggleArchive()
+    {
+        if (unitOfMeasure == null) return;
+        
+        bool success;
+        if (unitOfMeasure.State == State.Archived)
+        {
+            success = await UnitOfMeasureService.RestoreAsync(unitOfMeasure.Id);
+        }
+        else
+        {
+            success = await UnitOfMeasureService.ArchiveAsync(unitOfMeasure.Id);
+        }
+        
+        if (success)
+        {
+            await LoadUnit();
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/unit-of-measures");
+    }
+}

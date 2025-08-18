@@ -1,6 +1,5 @@
-﻿namespace WMS.UI.Models.UnitOfMeasure;
+﻿using WMS.UI.Models.Enums;
 
-public class UnitOfMeasure
-{
-    
-}
+namespace WMS.UI.Models.UnitOfMeasure;
+
+public record UnitOfMeasure(Guid Id, string Title, State State);

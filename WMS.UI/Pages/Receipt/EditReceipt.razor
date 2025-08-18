@@ -1,0 +1,293 @@
+﻿@page "/receipt/edit/{Id}"
+@using BlazorClient.Services
+@using WMS.UI.Models.Enums
+@using WMS.UI.Models.ReceiptDocument.Request
+@using WMS.UI.Models.ReceiptItem.Request
+@using WMS.UI.Models.Resource.Response
+@using WMS.UI.Models.UnitOfMeasure.Response
+@using WMS.UI.Services
+@inject ILogger<EditReceipt> Logger
+@inject ReceiptsService ReceiptsService
+@inject ResourceService ResourceService
+@inject UnitOfMeasureService UnitOfMeasureService
+@inject NavigationManager NavigationManager
+
+<h3 class="page-title">Редактирование документа поступления</h3>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+
+@if (isLoading)
+{
+    <div class="loading">Загрузка данных документа...</div>
+}
+else
+{
+    <div class="edit-form">
+        <div class="form-group">
+            <label>Номер заявки:</label>
+            <input @bind="applicationNumber" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Дата:</label>
+            <input type="date" @bind="date" @bind:format="yyyy-MM-dd" class="form-control" />
+        </div>
+
+        <div class="items-section">
+            <h4>Позиции:</h4>
+            
+            @foreach (var (item, index) in items.Select((item, i) => (item, i)))
+            {
+                <div class="item-card" key="@item.Id">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ресурс:</label>
+                            <select @bind="item.ResourceId" class="form-control">
+                                <option value="">Выберите ресурс</option>
+                                @foreach (var resource in resources)
+                                {
+                                    <option value="@resource.Id">@resource.Title</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ед. измерения:</label>
+                            <select @bind="item.UnitOfMeasureId" class="form-control">
+                                <option value="">Выберите единицу измерения</option>
+                                @foreach (var unit in unitsOfMeasure)
+                                {
+                                    <option value="@unit.Id">@unit.Title</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Количество:</label>
+                            <input type="number" @bind="item.Quantity" min="0.01" step="0.01" class="form-control" />
+                        </div>
+
+                        <button type="button" @onclick="() => RemoveItem(index)" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+
+            <button type="button" @onclick="AddItem" class="btn btn-success">
+                <i class="fas fa-plus"></i> Добавить позицию
+            </button>
+        </div>
+
+        <div class="form-actions">
+            <button @onclick="SubmitForm" class="btn btn-primary" disabled="@isSubmitting">
+                @if (isSubmitting)
+                {
+                    <span>Сохранение...</span>
+                }
+                else
+                {
+                    <span>Сохранить</span>
+                }
+            </button>
+            <button @onclick="Cancel" class="btn btn-secondary">Отмена</button>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private string applicationNumber = string.Empty;
+    private DateTime date = DateTime.Today;
+    private List<ReceiptItemModel> items = new();
+    
+    private List<ResourceResponse> resources = new();
+    private List<UnitOfMeasureResponse> unitsOfMeasure = new();
+    
+    private bool isLoading = true;
+    private bool isSubmitting = false;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await Task.WhenAll(
+                LoadResources(),
+                LoadUnitsOfMeasure()
+            );
+
+            var document = await ReceiptsService.GetByIdAsync(Id);
+        
+            if (document == null)
+            {
+                errorMessage = "Документ не найден";
+                return;
+            }
+
+            applicationNumber = document.ApplicationNumber;
+            date = document.Date;
+        
+            items = document.Items.Select(item => new ReceiptItemModel
+            {
+                Id = item.Id,
+                ResourceId = item.Resource.Id,
+                UnitOfMeasureId = item.UnitOfMeasure.Id,
+                Quantity = item.Quantity
+            }).ToList();
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка при загрузке документа");
+            errorMessage = "Произошла ошибка при загрузке документа";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task LoadResources()
+    {
+        try
+        {
+            resources = await ResourceService.GetByStateAsync(State.Working);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка при загрузке ресурсов");
+            errorMessage = "Не удалось загрузить список ресурсов";
+        }
+    }
+
+    private async Task LoadUnitsOfMeasure()
+    {
+        try
+        {
+            unitsOfMeasure = await UnitOfMeasureService.GetByStateAsync(State.Working);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Ошибка при загрузке единиц измерения");
+            errorMessage = "Не удалось загрузить список единиц измерения";
+        }
+    }
+
+    private void AddItem()
+    {
+        items.Add(new ReceiptItemModel 
+        { 
+            Id = Guid.NewGuid(), // Генерируем новый ID для новой позиции
+            ResourceId = Guid.Empty,
+            UnitOfMeasureId = Guid.Empty,
+            Quantity = 1 // Устанавливаем значение по умолчанию
+        });
+    }
+
+    private void RemoveItem(int index)
+    {
+        if (index >= 0 && index < items.Count)
+        {
+            items.RemoveAt(index);
+        }
+    }
+
+    private async Task SubmitForm()
+    {
+        isSubmitting = true;
+        errorMessage = null;
+        
+        try
+        {
+            // Валидация основных полей
+            if (string.IsNullOrWhiteSpace(applicationNumber))
+            {
+                errorMessage = "Номер заявки обязателен для заполнения";
+                return;
+            }
+
+            // Валидация позиций
+            if (!items.Any())
+            {
+                errorMessage = "Документ должен содержать хотя бы одну позицию";
+                return;
+            }
+
+            foreach (var item in items)
+            {
+                if (item.ResourceId == Guid.Empty)
+                {
+                    errorMessage = "Для всех позиций должен быть выбран ресурс";
+                    return;
+                }
+
+                if (item.UnitOfMeasureId == Guid.Empty)
+                {
+                    errorMessage = "Для всех позиций должна быть выбрана единица измерения";
+                    return;
+                }
+
+                if (item.Quantity <= 0)
+                {
+                    errorMessage = "Количество должно быть больше 0 для всех позиций";
+                    return;
+                }
+            }
+
+            // Подготавливаем запрос
+            var request = new ReceiptDocumentParamsRequest(
+                applicationNumber.Trim(),
+                date,
+                items.Select(i => new ReceiptItemParamsRequest(
+                    i.ResourceId,
+                    i.UnitOfMeasureId,
+                    i.Quantity
+                )).ToList()
+            );
+
+            Logger.LogInformation("Отправка запроса на обновление документа: {@Request}", request);
+
+            // Отправляем запрос на обновление
+            var result = await ReceiptsService.UpdateAsync(Id, request);
+            
+            if (result)
+            {
+                Logger.LogInformation("Документ успешно обновлен");
+                NavigationManager.NavigateTo("/receipts");
+            }
+            else
+            {
+                errorMessage = "Не удалось обновить документ. Попробуйте снова.";
+                Logger.LogError("Не удалось обновить документ");
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Произошла непредвиденная ошибка";
+            Logger.LogError(ex, "Ошибка при обновлении документа");
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/receipts");
+    }
+
+    // Модель для редактирования позиций документа
+    private class ReceiptItemModel
+    {
+        public Guid Id { get; set; } // ID позиции (для существующих)
+        public Guid ResourceId { get; set; }
+        public Guid UnitOfMeasureId { get; set; }
+        public decimal Quantity { get; set; }
+    }
+}
