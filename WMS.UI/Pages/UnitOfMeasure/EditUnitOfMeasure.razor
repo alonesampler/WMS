@@ -1,10 +1,18 @@
-﻿@page "/unit-of-measure/edit/{Id}"
+﻿@page "/unit-of-measure/edit/{Id:guid}"
 @using BlazorClient.Services
 @using WMS.UI.Models.Enums
 @using WMS.UI.Models.UnitOfMeasure
 @using WMS.UI.Models.UnitOfMeasure.Request
 @inject UnitOfMeasureService UnitOfMeasureService
 @inject NavigationManager NavigationManager
+@inject ILogger<EditUnitOfMeasure> Logger
+
+<h3 class="page-title">Редактирование единицы измерения</h3>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
 
 @if (isLoading)
 {
@@ -16,71 +24,96 @@ else if (unitOfMeasure == null)
 }
 else
 {
-    <h3>Редактирование единицы измерения</h3>
-
-    <div class="create-form">
+    <div class="edit-form">
         <div class="form-group">
             <label>ID:</label>
             <input class="form-control" value="@unitOfMeasure.Id" readonly />
         </div>
-        
+
         <div class="form-group">
             <label>Наименование:</label>
             <input @bind="editTitle" class="form-control" />
+            @if (showTitleError)
+            {
+                <small class="text-danger">Наименование не может быть пустым</small>
+            }
         </div>
-        
+
         <div class="form-group">
             <label>Статус:</label>
             <input class="form-control" value="@unitOfMeasure.State" readonly />
         </div>
 
         <div class="form-actions">
-            <button @onclick="DeleteUnit" class="btn-delete">Удалить</button>
-            <button @onclick="ToggleArchive" class="btn-archive">
+            <button @onclick="DeleteUnit" class="btn btn-danger" disabled="@isSubmitting">
+                Удалить
+            </button>
+            <button @onclick="ToggleArchive" class="btn btn-warning" disabled="@isSubmitting">
                 @(unitOfMeasure.State == State.Archived ? "В работу" : "В архив")
             </button>
-            <button @onclick="UpdateUnit" class="btn-save">Обновить</button>
-            <button @onclick="Cancel" class="btn-cancel">Отмена</button>
+            <button @onclick="UpdateUnit" class="btn btn-primary" disabled="@isSubmitting">
+                @if (isSubmitting)
+                {
+                    <span>Сохранение...</span>
+                }
+                else
+                {
+                    <span>Обновить</span>
+                }
+            </button>
+            <button @onclick="Cancel" class="btn btn-secondary">Отмена</button>
         </div>
     </div>
 }
 
 @code {
     [Parameter]
-    public string Id { get; set; }
+    public Guid Id { get; set; }
 
-    private UnitOfMeasure unitOfMeasure;
+    private UnitOfMeasure? unitOfMeasure;
     private string editTitle = string.Empty;
     private bool isLoading = true;
-    private Guid unitOfMeasureId;
+    private bool isSubmitting = false;
+    private bool showTitleError = false;
+    private string? errorMessage;
 
     protected override async Task OnInitializedAsync()
     {
-        if (Guid.TryParse(Id, out var parsedId))
+        try
         {
-            unitOfMeasureId = parsedId;
             await LoadUnit();
         }
-        else
+        catch (Exception ex)
         {
-            NavigationManager.NavigateTo("/unit-of-measures");
+            Logger.LogError(ex, "Ошибка при инициализации компонента");
+            errorMessage = "Ошибка при загрузке данных";
+        }
+        finally
+        {
+            isLoading = false;
         }
     }
 
     private async Task LoadUnit()
     {
         isLoading = true;
+        errorMessage = null;
         try
         {
-            unitOfMeasure = await UnitOfMeasureService.GetByIdAsync(unitOfMeasureId);
+            unitOfMeasure = await UnitOfMeasureService.GetByIdAsync(Id);
             if (unitOfMeasure != null)
             {
                 editTitle = unitOfMeasure.Title;
             }
+            else
+            {
+                errorMessage = "Единица измерения не найдена";
+            }
         }
-        catch
+        catch (Exception ex)
         {
-            // Обработка ошибки
+            Logger.LogError(ex, "Ошибка при загрузке единицы измерения");
+            errorMessage = "Ошибка при загрузке данных";
         }
         finally
         {
@@ -90,42 +123,115 @@ else
 
     private async Task UpdateUnit()
     {
-        if (unitOfMeasure == null || string.IsNullOrWhiteSpace(editTitle)) return;
+        isSubmitting = true;
+        errorMessage = null;
+        showTitleError = false;
 
-        var request = new UnitOfMeasureParamsRequest(editTitle);
-        var success = await UnitOfMeasureService.UpdateAsync(unitOfMeasure.Id, request);
-        
-        if (success)
+        try
         {
-            NavigationManager.NavigateTo("/unit-of-measures");
+            if (unitOfMeasure == null)
+            {
+                errorMessage = "Единица измерения не загружена";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(editTitle.Trim()))
+            {
+                showTitleError = true;
+                errorMessage = "Наименование единицы измерения обязательно";
+                return;
+            }
+
+            var request = new UnitOfMeasureParamsRequest(editTitle.Trim());
+            var (success, apiError) = await UnitOfMeasureService.UpdateAsync(unitOfMeasure.Id, request);
+
+            if (success)
+            {
+                NavigationManager.NavigateTo("/unit-of-measures", forceLoad: true);
+            }
+            else
+            {
+                errorMessage = apiError ?? "Уже существует такая единица измерения";
+                Logger.LogError("Ошибка при сохранении единицы измерения: {Error}", errorMessage);
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Ошибка при сохранении единицы измерения";
+            Logger.LogError(ex, "Ошибка при сохранении единицы измерения");
+        }
+        finally
+        {
+            isSubmitting = false;
         }
     }
 
     private async Task DeleteUnit()
     {
-        if (unitOfMeasure == null) return;
-        
-        var success = await UnitOfMeasureService.DeleteAsync(unitOfMeasure.Id);
-        if (success) NavigationManager.NavigateTo("/unit-of-measures");
+        isSubmitting = true;
+        errorMessage = null;
+
+        try
+        {
+            if (unitOfMeasure == null) return;
+
+            var success = await UnitOfMeasureService.DeleteAsync(unitOfMeasure.Id);
+            if (success)
+            {
+                NavigationManager.NavigateTo("/unit-of-measures", forceLoad: true);
+            }
+            else
+            {
+                errorMessage = "Ошибка при удалении единицы измерения";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Ошибка при удалении единицы измерения";
+            Logger.LogError(ex, "Ошибка при удалении единицы измерения");
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
     }
 
     private async Task ToggleArchive()
     {
-        if (unitOfMeasure == null) return;
-        
-        bool success;
-        if (unitOfMeasure.State == State.Archived)
+        isSubmitting = true;
+        errorMessage = null;
+
+        try
         {
-            success = await UnitOfMeasureService.RestoreAsync(unitOfMeasure.Id);
+            if (unitOfMeasure == null) return;
+
+            bool success;
+            if (unitOfMeasure.State == State.Archived)
+            {
+                success = await UnitOfMeasureService.RestoreAsync(unitOfMeasure.Id);
+            }
+            else
+            {
+                success = await UnitOfMeasureService.ArchiveAsync(unitOfMeasure.Id);
+            }
+
+            if (success)
+            {
+                await LoadUnit();
+            }
+            else
+            {
+                errorMessage = "Ошибка при изменении статуса единицы измерения";
+            }
         }
-        else
+        catch (Exception ex)
         {
-            success = await UnitOfMeasureService.ArchiveAsync(unitOfMeasure.Id);
+            errorMessage = "Ошибка при изменении статуса единицы измерения";
+            Logger.LogError(ex, "Ошибка при изменении статуса единицы измерения");
         }
-        
-        if (success)
+        finally
         {
-            await LoadUnit();
+            isSubmitting = false;
         }
     }
 

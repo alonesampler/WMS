@@ -35,6 +35,14 @@ public class ResourceQuantityAggregateRepository : IResourceQuantityAggregateRep
         await _dbContext.ResourceQuantityAggregates
             .FirstOrDefaultAsync(a => a.ResourceId == resourceId && a.UnitOfMeasureId == unitOfMeasureId);
 
+    public async Task<ResourceQuantityAggregate?> GetByResourceAsync(Guid resourceId) =>
+        await _dbContext.ResourceQuantityAggregates
+            .FirstOrDefaultAsync(a => a.ResourceId == resourceId);
+
+    public async Task<ResourceQuantityAggregate?> GetByUnitOfMeasureAsync(Guid unitOfMeasureId) =>
+        await _dbContext.ResourceQuantityAggregates
+            .FirstOrDefaultAsync(a => a.UnitOfMeasureId == unitOfMeasureId);
+
     public Task UpdateAsync(ResourceQuantityAggregate entity)
     {
         _dbContext.ResourceQuantityAggregates.Update(entity);

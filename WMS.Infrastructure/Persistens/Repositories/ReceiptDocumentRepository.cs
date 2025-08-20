@@ -60,14 +60,17 @@ public class ReceiptDocumentRepository : IReceiptDocumentRepository
         if (!string.IsNullOrWhiteSpace(applicationNumberFilter))
             query = query.Where(d => d.ApplicationNumber.Contains(applicationNumberFilter));
 
-        // Фильтр по ID ресурсов
         if (resourceIds != null && resourceIds.Any())
             query = query.Where(d => d.Items.Any(i => resourceIds.Contains(i.ResourceId)));
 
-        // Фильтр по ID единиц измерения
         if (unitOfMeasureIds != null && unitOfMeasureIds.Any())
             query = query.Where(d => d.Items.Any(i => unitOfMeasureIds.Contains(i.UnitOfMeasureId)));
 
         return await query.AsNoTracking().ToListAsync();
     }
+
+    public async Task<ReceiptDocument?> GetByApplicationNumber(string applicationNumber) =>
+        await _dbContext.ReceiptDocuments
+            .AsNoTracking()
+            .FirstOrDefaultAsync(d => d.ApplicationNumber.ToLower() == applicationNumber.ToLower());
 }

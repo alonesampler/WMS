@@ -6,5 +6,9 @@ public interface IResourceQuantityAggregateRepository : IRepository<ResourceQuan
 {
     public Task<IEnumerable<ResourceQuantityAggregate>> GetAll();
 
+    public Task<ResourceQuantityAggregate?> GetByUnitOfMeasureAsync(Guid unitOfMeasureId);
+
+    public Task<ResourceQuantityAggregate?> GetByResourceAsync(Guid resourceId);
+
     public Task<ResourceQuantityAggregate?> GetByResourceAndUnitAsync(Guid resourceId, Guid unitOfMeasureId);
 }

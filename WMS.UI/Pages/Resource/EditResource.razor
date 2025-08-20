@@ -1,10 +1,18 @@
-﻿@page "/resource/edit/{Id}"
+﻿@page "/resource/edit/{Id:guid}"
 @using BlazorClient.Services
 @using WMS.UI.Models.Enums
 @using WMS.UI.Models.Resource
 @using WMS.UI.Models.Resource.Request
 @inject ResourceService ResourceService
 @inject NavigationManager NavigationManager
+@inject ILogger<EditResource> Logger
+
+<h3 class="page-title">Редактирование ресурса</h3>
+
+@if (errorMessage != null)
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
 
 @if (isLoading)
 {
@@ -16,71 +24,96 @@ else if (resource == null)
 }
 else
 {
-    <h3>Редактирование ресурса</h3>
-
-    <div class="create-form">
+    <div class="edit-form">
         <div class="form-group">
             <label>ID:</label>
             <input class="form-control" value="@resource.Id" readonly />
         </div>
-        
+
         <div class="form-group">
             <label>Наименование:</label>
             <input @bind="editTitle" class="form-control" />
+            @if (showTitleError)
+            {
+                <small class="text-danger">Наименование не может быть пустым</small>
+            }
         </div>
-        
+
         <div class="form-group">
             <label>Статус:</label>
             <input class="form-control" value="@resource.State" readonly />
         </div>
 
         <div class="form-actions">
-            <button @onclick="DeleteResource" class="btn-delete">Удалить</button>
-            <button @onclick="ToggleArchive" class="btn-archive">
+            <button @onclick="DeleteResource" class="btn btn-danger" disabled="@isSubmitting">
+                Удалить
+            </button>
+            <button @onclick="ToggleArchive" class="btn btn-warning" disabled="@isSubmitting">
                 @(resource.State == State.Archived ? "В работу" : "В архив")
             </button>
-            <button @onclick="UpdateResource" class="btn-save">Обновить</button>
-            <button @onclick="Cancel" class="btn-cancel">Отмена</button>
+            <button @onclick="UpdateResource" class="btn btn-primary" disabled="@isSubmitting">
+                @if (isSubmitting)
+                {
+                    <span>Сохранение...</span>
+                }
+                else
+                {
+                    <span>Обновить</span>
+                }
+            </button>
+            <button @onclick="Cancel" class="btn btn-secondary">Отмена</button>
         </div>
     </div>
 }
 
 @code {
     [Parameter]
-    public string Id { get; set; }  // Теперь принимаем string
+    public Guid Id { get; set; }
 
     private Resource? resource;
     private string editTitle = string.Empty;
     private bool isLoading = true;
-    private Guid resourceId;  // Здесь храним Guid
+    private bool isSubmitting = false;
+    private bool showTitleError = false;
+    private string? errorMessage;
 
     protected override async Task OnInitializedAsync()
     {
-        if (Guid.TryParse(Id, out var parsedId))
+        try
         {
-            resourceId = parsedId;
             await LoadResource();
         }
-        else
+        catch (Exception ex)
         {
-            NavigationManager.NavigateTo("/resources");
+            Logger.LogError(ex, "Ошибка при инициализации компонента");
+            errorMessage = "Ошибка при загрузке данных";
+        }
+        finally
+        {
+            isLoading = false;
         }
     }
 
     private async Task LoadResource()
     {
         isLoading = true;
+        errorMessage = null;
         try
         {
-            resource = await ResourceService.GetByIdAsync(resourceId);
+            resource = await ResourceService.GetByIdAsync(Id);
             if (resource != null)
             {
                 editTitle = resource.Title;
             }
+            else
+            {
+                errorMessage = "Ресурс не найден";
+            }
         }
-        catch
+        catch (Exception ex)
         {
-            // Обработка ошибки
+            Logger.LogError(ex, "Ошибка при загрузке ресурса");
+            errorMessage = "Ошибка при загрузке данных";
         }
         finally
         {
@@ -90,42 +123,115 @@ else
 
     private async Task UpdateResource()
     {
-        if (resource == null || string.IsNullOrWhiteSpace(editTitle)) return;
+        isSubmitting = true;
+        errorMessage = null;
+        showTitleError = false;
 
-        var request = new ResourceParamsRequest(editTitle);
-        var success = await ResourceService.UpdateAsync(resource.Id, request);
-        
-        if (success)
+        try
         {
-            NavigationManager.NavigateTo("/resources");
+            if (resource == null)
+            {
+                errorMessage = "Ресурс не загружен";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(editTitle.Trim()))
+            {
+                showTitleError = true;
+                errorMessage = "Наименование ресурса обязательно";
+                return;
+            }
+
+            var request = new ResourceParamsRequest(editTitle.Trim());
+            var (success, apiError) = await ResourceService.UpdateAsync(resource.Id, request);
+
+            if (success)
+            {
+                NavigationManager.NavigateTo("/resources", forceLoad: true);
+            }
+            else
+            {
+                errorMessage = apiError ?? "Уже существует такой ресурс";
+                Logger.LogError("Ошибка при сохранении ресурса: {Error}", errorMessage);
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Ошибка при сохранении ресурса";
+            Logger.LogError(ex, "Ошибка при сохранении ресурса");
+        }
+        finally
+        {
+            isSubmitting = false;
         }
     }
 
     private async Task DeleteResource()
     {
-        if (resource == null) return;
-        
-        var success = await ResourceService.DeleteAsync(resource.Id);
-        if (success) NavigationManager.NavigateTo("/resources");
+        isSubmitting = true;
+        errorMessage = null;
+
+        try
+        {
+            if (resource == null) return;
+
+            var success = await ResourceService.DeleteAsync(resource.Id);
+            if (success)
+            {
+                NavigationManager.NavigateTo("/resources", forceLoad: true);
+            }
+            else
+            {
+                errorMessage = "Ошибка при удалении ресурса";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Ошибка при удалении ресурса";
+            Logger.LogError(ex, "Ошибка при удалении ресурса");
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
     }
 
     private async Task ToggleArchive()
     {
-        if (resource == null) return;
-        
-        bool success;
-        if (resource.State == State.Archived)
+        isSubmitting = true;
+        errorMessage = null;
+
+        try
         {
-            success = await ResourceService.RestoreAsync(resource.Id);
+            if (resource == null) return;
+
+            bool success;
+            if (resource.State == State.Archived)
+            {
+                success = await ResourceService.RestoreAsync(resource.Id);
+            }
+            else
+            {
+                success = await ResourceService.ArchiveAsync(resource.Id);
+            }
+
+            if (success)
+            {
+                await LoadResource();
+            }
+            else
+            {
+                errorMessage = "Ошибка при изменении статуса ресурса";
+            }
         }
-        else
+        catch (Exception ex)
         {
-            success = await ResourceService.ArchiveAsync(resource.Id);
+            errorMessage = "Ошибка при изменении статуса ресурса";
+            Logger.LogError(ex, "Ошибка при изменении статуса ресурса");
         }
-        
-        if (success)
+        finally
         {
-            await LoadResource();
+            isSubmitting = false;
         }
     }
 

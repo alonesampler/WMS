@@ -130,7 +130,7 @@ else
                 
                 items = receipt.Items.Select(i => new ReceiptItemModel
                 {
-                    Id = i.Id, // Добавляем ID позиции
+                    Id = i.Id,
                     ResourceId = i.ResourceId,
                     UnitOfMeasureId = i.UnitOfMeasureId,
                     Quantity = i.Quantity
@@ -166,10 +166,10 @@ else
     {
         items.Add(new ReceiptItemModel
         {
-            Id = Guid.NewGuid(), // Генерируем ID для новой позиции
+            Id = Guid.NewGuid(),
             ResourceId = Guid.Empty,
             UnitOfMeasureId = Guid.Empty,
-            Quantity = 1 // Ставим значение по умолчанию 1 вместо 0
+            Quantity = 1
         });
     }
 
@@ -194,7 +194,6 @@ else
                 return;
             }
 
-            // Проверяем все позиции
             foreach (var item in items)
             {
                 if (item.ResourceId == Guid.Empty)
@@ -219,20 +218,21 @@ else
             var normalizedDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, DateTimeKind.Utc);
 
             var request = new ReceiptDocumentParamsRequest(
-                applicationNumber,
+                applicationNumber.Trim(),
                 normalizedDate,
                 items.Select(i => new ReceiptItemParamsRequest(i.ResourceId, i.UnitOfMeasureId, i.Quantity)).ToList()
             );
 
-            var result = await ReceiptsService.UpdateAsync(Id, request);
-            
-            if (result)
+            var (success, apiError) = await ReceiptsService.UpdateAsync(Id, request);
+
+            if (success)
             {
                 NavigationManager.NavigateTo("/receipts");
             }
             else
             {
-                errorMessage = "Ошибка при сохранении документа";
+                errorMessage = apiError ?? "Ошибка при сохранении документа";
+                Logger.LogError("Ошибка при сохранении документа: {Error}", errorMessage);
             }
         }
         catch (Exception ex)
@@ -253,7 +253,7 @@ else
 
     private class ReceiptItemModel
     {
-        public Guid Id { get; set; } // Добавляем ID для отслеживания позиций
+        public Guid Id { get; set; }
         public Guid ResourceId { get; set; }
         public Guid UnitOfMeasureId { get; set; }
         public decimal Quantity { get; set; }

@@ -2,6 +2,7 @@
 using WMS.Application.DTOs.ReceiptDocument.Response;
 using WMS.UI.Models.ReceiptDocument;
 using WMS.UI.Models.ReceiptDocument.Request;
+using static System.Net.WebRequestMethods;
 
 namespace WMS.UI.Services
 {
@@ -13,13 +14,18 @@ namespace WMS.UI.Services
         {
             _httpClient = httpClient;
         }
-        
-        public async Task<bool> CreateAsync(ReceiptDocumentParamsRequest request)
+
+        public async Task<(bool Success, string? Error)> CreateAsync(ReceiptDocumentParamsRequest request)
         {
             var response = await _httpClient.PostAsJsonAsync("api/v1/receipts", request);
-            return response.IsSuccessStatusCode;
+
+            if (response.IsSuccessStatusCode)
+                return (true, null);
+
+            var errors = await response.Content.ReadFromJsonAsync<List<string>>();
+            return (false, errors != null && errors.Any() ? string.Join("; ", errors) : "Неизвестная ошибка");
         }
-        
+
         public async Task<ReceiptDocument?> GetByIdAsync(Guid id)
         {
             try
@@ -31,13 +37,19 @@ namespace WMS.UI.Services
                 return null;
             }
         }
-        
-        public async Task<bool> UpdateAsync(Guid id, ReceiptDocumentParamsRequest request)
+
+        public async Task<(bool Success, string? Error)> UpdateAsync(Guid id, ReceiptDocumentParamsRequest request)
         {
             var response = await _httpClient.PutAsJsonAsync($"api/v1/receipts/{id}", request);
-            return response.IsSuccessStatusCode;
+
+            if (response.IsSuccessStatusCode)
+                return (true, null);
+
+            var errors = await response.Content.ReadFromJsonAsync<List<string>>();
+            return (false, errors != null && errors.Any() ? string.Join("; ", errors) : "Неизвестная ошибка");
         }
-        
+
+
         public async Task<bool> DeleteAsync(Guid id)
         {
             var response = await _httpClient.DeleteAsync($"api/v1/receipts/{id}");

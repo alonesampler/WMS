@@ -20,6 +20,13 @@ public class ReceiptsService : IReceiptsService
 
     public async Task<Result> CreateAsync(ReceiptDocumentParamsRequest @params)
     {
+        var existingUnit = await _unitOfWork.ReceiptDocumentRepository.GetByApplicationNumber(@params.ApplicationNumber);
+
+        if (existingUnit != null)
+        {
+            return Result.Fail("Документ с таким номером заявки уже существует");
+        }
+
         var receiptDocument = ReceiptDocument.Create(
             Guid.NewGuid(),
             @params.ApplicationNumber,
@@ -78,10 +85,19 @@ public class ReceiptsService : IReceiptsService
     public async Task<Result> UpdateAsync(Guid receiptDocumentId, ReceiptDocumentParamsRequest @params)
     {
         var getResult = await GetByIdAsync(receiptDocumentId);
+
         if (getResult.IsFailed)
             return getResult.ToResult();
 
         var receiptDocument = getResult.Value;
+
+        if (!receiptDocument.ApplicationNumber.Equals(@params.ApplicationNumber, StringComparison.OrdinalIgnoreCase))
+        {
+            var existingUnit = await _unitOfWork.ReceiptDocumentRepository.GetByApplicationNumber(@params.ApplicationNumber);
+
+            if (existingUnit != null && existingUnit.Id != receiptDocumentId)
+                return Result.Fail("Единица измерения с таким названием уже существует");
+        }
 
         await _unitOfWork.BeginTransactionAsync();
 
@@ -118,9 +134,7 @@ public class ReceiptsService : IReceiptsService
                     await _unitOfWork.ResourceQuantityAggregateRepository.CreateAsync(aggregate);
                 }
                 else
-                {
                     aggregate.UpdateTotalQuantity(aggregate.TotalQuantity + itemParam.Quantity);
-                }
             }
             else
             {
@@ -146,6 +160,7 @@ public class ReceiptsService : IReceiptsService
             aggregate.UpdateTotalQuantity(aggregate.TotalQuantity - itemToRemove.Quantity);
 
             receiptDocument.Items.Remove(itemToRemove);
+
             await _unitOfWork.ReceiptItemRepository.DeleteAsync(itemToRemove);
         }
 
@@ -174,13 +189,9 @@ public class ReceiptsService : IReceiptsService
             if (aggregate != null)
             {
                 if (aggregate.TotalQuantity <= item.Quantity)
-                {
                     await _unitOfWork.ResourceQuantityAggregateRepository.DeleteAsync(aggregate);
-                }
                 else
-                {
                     aggregate.UpdateTotalQuantity(aggregate.TotalQuantity - item.Quantity);
-                }
             }
 
             await _unitOfWork.ReceiptItemRepository.DeleteAsync(item);

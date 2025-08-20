@@ -51,7 +51,7 @@ public class ResourcesService : IResourceService
         var resource = getResult.Value;
 
         if (resource.State == State.Archived)
-            return Result.Fail("Resource already archived");
+            return Result.Fail("Ресурс уже заархивирован");
 
         resource.Archive();
 
@@ -117,6 +117,12 @@ public class ResourcesService : IResourceService
 
         var resource = getResult.Value;
 
+        var usingAggregate = await _unitOfWork.ResourceQuantityAggregateRepository
+            .GetByResourceAsync(resource.Id);
+
+        if (usingAggregate != null)
+            return Result.Fail("Невозможно удалить ресурс, так как он используется");
+
         await _unitOfWork.BeginTransactionAsync();
         await _unitOfWork.ResourceRepository.DeleteAsync(resource);
         await _unitOfWork.CommitAsync();
@@ -129,7 +135,7 @@ public class ResourcesService : IResourceService
         var resource = await _unitOfWork.ResourceRepository.GetByIdAsync(id);
         
         if (resource == null)
-            return Result.Fail("Resource not found");
+            return Result.Fail("Ресурс не найден");
         
         return Result.Ok(resource);
     }

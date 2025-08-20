@@ -156,14 +156,12 @@
         
         try
         {
-            // Валидация
             if (string.IsNullOrWhiteSpace(applicationNumber))
             {
                 errorMessage = "Номер заявки обязателен для заполнения";
                 return;
             }
 
-            // Проверяем только заполненные позиции
             foreach (var item in items)
             {
                 if (item.ResourceId == Guid.Empty || item.UnitOfMeasureId == Guid.Empty)
@@ -179,13 +177,12 @@
                 }
             }
 
-            // Конвертируем дату в UTC перед отправкой
             var utcDate = date.Kind == DateTimeKind.Unspecified 
                 ? DateTime.SpecifyKind(date, DateTimeKind.Utc)
                 : date.ToUniversalTime();
 
             var request = new ReceiptDocumentParamsRequest(
-                applicationNumber,
+                applicationNumber.Trim(),
                 utcDate,
                 items.Where(i => i.ResourceId != Guid.Empty && i.UnitOfMeasureId != Guid.Empty && i.Quantity > 0)
                     .Select(i => new ReceiptItemParamsRequest(
@@ -197,17 +194,17 @@
 
             Logger.LogInformation("Отправка запроса на создание документа: {@Request}", request);
 
-            var result = await ReceiptsService.CreateAsync(request);
+            var (success, apiError) = await ReceiptsService.CreateAsync(request);
             
-            if (result)
+            if (success)
             {
                 Logger.LogInformation("Документ успешно создан");
                 NavigationManager.NavigateTo("/receipts");
             }
             else
             {
-                errorMessage = "Ошибка при создании документа. Попробуйте снова.";
-                Logger.LogError("Не удалось создать документ");
+                errorMessage = apiError ?? "Ошибка при создании документа";
+                Logger.LogError("Ошибка при создании документа: {Error}", errorMessage);
             }
         }
         catch (Exception ex)

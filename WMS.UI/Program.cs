@@ -8,7 +8,7 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 builder.Services.AddScoped(sp => new HttpClient 
 { 
-    BaseAddress = new Uri("https://localhost:44374/") 
+    BaseAddress = new Uri("http://localhost:5083/")
 });
 
 builder.Services.AddScoped<ResourceService>();

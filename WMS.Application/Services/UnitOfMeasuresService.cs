@@ -116,6 +116,11 @@ public class UnitOfMeasuresService : IUnitOfMeasureService
             return getResult.ToResult();
 
         var unitOfMeasure = getResult.Value;
+        var usingAggregate = await _unitOfWork.ResourceQuantityAggregateRepository
+            .GetByUnitOfMeasureAsync(unitOfMeasure.Id);
+
+        if (usingAggregate != null)
+            return Result.Fail("Невозможно удалить еденицу измерения, так как она используется");
 
         await _unitOfWork.BeginTransactionAsync();
         await _unitOfWork.UnitOfMeasureRepository.DeleteAsync(unitOfMeasure);

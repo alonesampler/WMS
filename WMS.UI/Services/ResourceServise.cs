@@ -37,13 +37,19 @@ public class ResourceService
             return (false, $"Ошибка при создании: {ex.Message}");
         }
     }
-    
-    public async Task<bool> UpdateAsync(Guid id, ResourceParamsRequest request)
+
+    public async Task<(bool Success, string? Error)> UpdateAsync(Guid id, ResourceParamsRequest request)
     {
         var response = await _httpClient.PutAsJsonAsync($"api/v1/resources/{id}", request);
-        return response.IsSuccessStatusCode;
+
+        if (response.IsSuccessStatusCode)
+            return (true, null);
+
+        var errors = await response.Content.ReadFromJsonAsync<List<string>>();
+        return (false, errors != null && errors.Any() ? string.Join("; ", errors) : "Неизвестная ошибка");
     }
-    
+
+
     public async Task<bool> DeleteAsync(Guid id)
     {
         var response = await _httpClient.DeleteAsync($"api/v1/resources/{id}");

@@ -20,19 +20,30 @@ public class UnitOfMeasureService
     {
         return await _httpClient.GetFromJsonAsync<UnitOfMeasure>($"api/v1/unit-of-measures/{id}");
     }
-    
-    public async Task<bool> CreateAsync(UnitOfMeasureParamsRequest request)
+
+    public async Task<(bool Success, string? Error)> CreateAsync(UnitOfMeasureParamsRequest request)
     {
         var response = await _httpClient.PostAsJsonAsync("api/v1/unit-of-measures", request);
-        return response.IsSuccessStatusCode;
+
+        if (response.IsSuccessStatusCode)
+            return (true, null);
+
+        var errors = await response.Content.ReadFromJsonAsync<List<string>>();
+        return (false, errors != null && errors.Any() ? string.Join("; ", errors) : "Неизвестная ошибка");
     }
-    
-    public async Task<bool> UpdateAsync(Guid id, UnitOfMeasureParamsRequest request)
+
+    public async Task<(bool Success, string? Error)> UpdateAsync(Guid id, UnitOfMeasureParamsRequest request)
     {
         var response = await _httpClient.PutAsJsonAsync($"api/v1/unit-of-measures/{id}", request);
-        return response.IsSuccessStatusCode;
+
+        if (response.IsSuccessStatusCode)
+            return (true, null);
+
+        var errors = await response.Content.ReadFromJsonAsync<List<string>>();
+        return (false, errors != null && errors.Any() ? string.Join("; ", errors) : "Неизвестная ошибка");
     }
-    
+
+
     public async Task<bool> DeleteAsync(Guid id)
     {
         var response = await _httpClient.DeleteAsync($"api/v1/unit-of-measures/{id}");

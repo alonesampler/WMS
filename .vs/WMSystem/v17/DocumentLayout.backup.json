@@ -1,117 +1,188 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\repos\\WMSystem\\",
+  "WorkspaceRootPath": "D:\\repos\\WMS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\repositories\\resourcequantityaggregaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\repositories\\resourcequantityaggregaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Admin\\AppData\\Local\\Temp\\.vsdbgsrc\\03561b90dc1bbc58db7a29bd16287617683736c9bdbe27e03bda3842af1b663b\\StringBuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\repositories\\receiptitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\repositories\\receiptitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\services\\unitofmeasuresservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\services\\unitofmeasuresservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\repositories\\receiptdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\repositories\\receiptdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\services\\resourcesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\services\\resourcesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\services\\receiptsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\services\\receiptsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\services\\receiptsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\entityconfigurations\\resourcequantityaggregateconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\resourcequantityaggregateconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\repositories\\resourcequantityaggregaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\repositories\\resourcequantityaggregaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\entityconfigurations\\unitofmeasureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\unitofmeasureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\entityconfigurations\\resourceconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\resourceconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\entityconfigurations\\receiptitemconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\receiptitemconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\persistens\\entityconfigurations\\receiptdocumentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\receiptdocumentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\entities\\unitofmeasure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\unitofmeasure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\entities\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\entities\\resourcequantityaggregate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\resourcequantityaggregate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\entities\\receiptitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\receiptitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\entities\\receiptdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\receiptdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\services\\abstractions\\ireceiptsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\services\\abstractions\\ireceiptsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wmsystem\\wms.infrastructure\\postgresunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\postgresunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\unitofwork\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\unitofwork\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\repositories\\iresourcequantityaggregaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\repositories\\iresourcequantityaggregaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\repositories\\iresourcequantityaggregaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\extensions\\applicationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\extensions\\applicationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\entities\\resourcequantityaggregate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\resourcequantityaggregate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\repositories\\ireceiptdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\unitofmeasure\\editunitofmeasure.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\unitofmeasure\\editunitofmeasure.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\resource\\editresource.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\resource\\editresource.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\receipt\\editreceipt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\receipt\\editreceipt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\receipt\\createreceipt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\receipt\\createreceipt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\services\\receiptservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\services\\receiptservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\services\\unitofmeasureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\services\\unitofmeasureservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\services\\resourceservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\services\\resourceservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ADF824E-D6A3-4ADC-AD5D-2BBEF7630E66}|WMS.API\\WMS.API.csproj|d:\\repos\\wms\\wms.api\\controllers\\v1\\receiptscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ADF824E-D6A3-4ADC-AD5D-2BBEF7630E66}|WMS.API\\WMS.API.csproj|solutionrelative:wms.api\\controllers\\v1\\receiptscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\resource\\createresource.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\resource\\createresource.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\unitofmeasure\\unitofmeasures.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\unitofmeasure\\unitofmeasures.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\unitofmeasure\\createunitofmeasure.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\unitofmeasure\\createunitofmeasure.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\receipt\\receipts.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\receipt\\receipts.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\pages\\resource\\resources.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\pages\\resource\\resources.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|d:\\repos\\wms\\wms.ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E824EBE-D670-41F8-9CF4-276D98687C70}|WMS.UI\\WMS.UI.csproj|solutionrelative:wms.ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\repositories\\receiptdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\repositories\\receiptdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\repositories\\ireceiptdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\repositories\\ireceiptdocumentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\dtos\\receiptdocument\\response\\receiptdocumentinforesponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\repositories\\resourcerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\repositories\\resourcerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\repositories\\receiptitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\repositories\\receiptitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\entityconfigurations\\resourcequantityaggregateconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\resourcequantityaggregateconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\entityconfigurations\\unitofmeasureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\unitofmeasureconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\entityconfigurations\\resourceconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\resourceconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\entityconfigurations\\receiptitemconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\receiptitemconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\persistens\\entityconfigurations\\receiptdocumentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\persistens\\entityconfigurations\\receiptdocumentconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\entities\\unitofmeasure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\unitofmeasure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\entities\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\entities\\receiptitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\receiptitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\entities\\receiptdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\entities\\receiptdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\services\\abstractions\\ireceiptsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\services\\abstractions\\ireceiptsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|d:\\repos\\wms\\wms.infrastructure\\postgresunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{20B431D6-6C91-4DE0-8955-5651D9990957}|WMS.Infrastructure\\WMS.Infrastructure.csproj|solutionrelative:wms.infrastructure\\postgresunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\unitofwork\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\unitofwork\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\extensions\\applicationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\extensions\\applicationextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\dtos\\receiptdocument\\response\\receiptdocumentinforesponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\dtos\\receiptdocument\\response\\receiptdocumentinforesponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\dtos\\receiptitem\\request\\receiptitemparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\dtos\\receiptitem\\request\\receiptitemparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\dtos\\receiptitem\\request\\receiptitemparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\dtos\\receiptdocument\\request\\receiptdocumentparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\dtos\\receiptdocument\\request\\receiptdocumentparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\dtos\\receiptdocument\\request\\receiptdocumentparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wmsystem\\wms.domain\\repositories\\ireceiptitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|d:\\repos\\wms\\wms.domain\\repositories\\ireceiptitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D91DDD9D-AC14-4538-869C-686896D16EE0}|WMS.Domain\\WMS.Domain.csproj|solutionrelative:wms.domain\\repositories\\ireceiptitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\dtos\\receiptitem\\response\\receiptitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\dtos\\receiptitem\\response\\receiptitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\dtos\\receiptitem\\response\\receiptitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\dtos\\unitofmeasure\\request\\unitofmeasureparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\dtos\\unitofmeasure\\request\\unitofmeasureparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\dtos\\unitofmeasure\\request\\unitofmeasureparamsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wmsystem\\wms.application\\dtos\\unitofmeasure\\response\\unitofmeasureresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|d:\\repos\\wms\\wms.application\\dtos\\unitofmeasure\\response\\unitofmeasureresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C0AB465-4302-4265-863F-F9F3F25956BE}|WMS.Application\\WMS.Application.csproj|solutionrelative:wms.application\\dtos\\unitofmeasure\\response\\unitofmeasureresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -122,375 +193,585 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ResourceQuantityAggregateConfiguration.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceQuantityAggregateConfiguration.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceQuantityAggregateConfiguration.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceQuantityAggregateConfiguration.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceQuantityAggregateConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T23:06:59.732Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ReceiptDocumentRepository.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\Repositories\\ReceiptDocumentRepository.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\Repositories\\ReceiptDocumentRepository.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\Repositories\\ReceiptDocumentRepository.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\Repositories\\ReceiptDocumentRepository.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAmwEYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T23:21:55.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReceiptItemRepository.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\Repositories\\ReceiptItemRepository.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\Repositories\\ReceiptItemRepository.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\Repositories\\ReceiptItemRepository.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\Repositories\\ReceiptItemRepository.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAowCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T23:20:15.5Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ResourceQuantityAggregateRepository.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\Repositories\\ResourceQuantityAggregateRepository.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\Repositories\\ResourceQuantityAggregateRepository.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\Repositories\\ResourceQuantityAggregateRepository.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\Repositories\\ResourceQuantityAggregateRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABXAAAAAAAAAA==",
+              "Title": "StringBuilder.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\AppData\\Local\\Temp\\.vsdbgsrc\\03561b90dc1bbc58db7a29bd16287617683736c9bdbe27e03bda3842af1b663b\\StringBuilder.cs",
+              "ToolTip": "C:\\Users\\Admin\\AppData\\Local\\Temp\\.vsdbgsrc\\03561b90dc1bbc58db7a29bd16287617683736c9bdbe27e03bda3842af1b663b\\StringBuilder.cs [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]",
+              "ViewState": "AgIAAIoCAAAAAAAAAAAkwJgCAAACAAAAAQAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T23:21:27.749Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ReceiptsService.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\Services\\ReceiptsService.cs",
-              "RelativeDocumentMoniker": "WMS.Application\\Services\\ReceiptsService.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\Services\\ReceiptsService.cs",
-              "RelativeToolTip": "WMS.Application\\Services\\ReceiptsService.cs",
-              "ViewState": "AgIAALwAAAAAAAAAAAAcwNgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T20:36:55.027Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\ApplicationDbContext.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAA0AAAAANDMzMzPzvxwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:49:26.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T22:45:43.156Z",
+              "EditorCaption": " [\u0422\u043E\u043B\u044C\u043A\u043E \u0447\u0442\u0435\u043D\u0438\u0435]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "UnitOfMeasureConfiguration.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\UnitOfMeasureConfiguration.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\UnitOfMeasureConfiguration.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\UnitOfMeasureConfiguration.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\UnitOfMeasureConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:59:14.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ResourceConfiguration.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceConfiguration.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceConfiguration.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceConfiguration.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:59:05.126Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ReceiptItemConfiguration.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptItemConfiguration.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptItemConfiguration.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptItemConfiguration.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptItemConfiguration.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAIwB4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T23:03:30.539Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ReceiptDocumentConfiguration.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptDocumentConfiguration.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptDocumentConfiguration.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptDocumentConfiguration.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptDocumentConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:58:32.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "UnitOfMeasure.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\UnitOfMeasure.cs",
-              "RelativeDocumentMoniker": "WMS.Domain\\Entities\\UnitOfMeasure.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\UnitOfMeasure.cs",
-              "RelativeToolTip": "WMS.Domain\\Entities\\UnitOfMeasure.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwDsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T11:41:53.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Resource.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\Resource.cs",
-              "RelativeDocumentMoniker": "WMS.Domain\\Entities\\Resource.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\Resource.cs",
-              "RelativeToolTip": "WMS.Domain\\Entities\\Resource.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAwwDwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T11:42:59.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "ResourceQuantityAggregate.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\ResourceQuantityAggregate.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\Entities\\ResourceQuantityAggregate.cs",
               "RelativeDocumentMoniker": "WMS.Domain\\Entities\\ResourceQuantityAggregate.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\ResourceQuantityAggregate.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\Entities\\ResourceQuantityAggregate.cs",
               "RelativeToolTip": "WMS.Domain\\Entities\\ResourceQuantityAggregate.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAA0wDQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAADg//////8lwDQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T19:58:53.972Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ReceiptItem.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\ReceiptItem.cs",
-              "RelativeDocumentMoniker": "WMS.Domain\\Entities\\ReceiptItem.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\ReceiptItem.cs",
-              "RelativeToolTip": "WMS.Domain\\Entities\\ReceiptItem.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAcwEUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T11:28:46.087Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ReceiptDocument.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\ReceiptDocument.cs",
-              "RelativeDocumentMoniker": "WMS.Domain\\Entities\\ReceiptDocument.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\Entities\\ReceiptDocument.cs",
-              "RelativeToolTip": "WMS.Domain\\Entities\\ReceiptDocument.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAgwCoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T11:41:30.782Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IReceiptsService.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\Services\\Abstractions\\IReceiptsService.cs",
-              "RelativeDocumentMoniker": "WMS.Application\\Services\\Abstractions\\IReceiptsService.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\Services\\Abstractions\\IReceiptsService.cs",
-              "RelativeToolTip": "WMS.Application\\Services\\Abstractions\\IReceiptsService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T21:50:33.484Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "PostgresUnitOfWork.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Infrastructure\\PostgresUnitOfWork.cs",
-              "RelativeDocumentMoniker": "WMS.Infrastructure\\PostgresUnitOfWork.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Infrastructure\\PostgresUnitOfWork.cs",
-              "RelativeToolTip": "WMS.Infrastructure\\PostgresUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:43:34.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ApplicationExtensions.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\Extensions\\ApplicationExtensions.cs",
-              "RelativeDocumentMoniker": "WMS.Application\\Extensions\\ApplicationExtensions.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\Extensions\\ApplicationExtensions.cs",
-              "RelativeToolTip": "WMS.Application\\Extensions\\ApplicationExtensions.cs",
-              "ViewState": "AgIAAAoAAADAmZmZmZkdwBsAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T22:26:09.509Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\UnitOfWork\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "WMS.Domain\\UnitOfWork\\IUnitOfWork.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\UnitOfWork\\IUnitOfWork.cs",
-              "RelativeToolTip": "WMS.Domain\\UnitOfWork\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T21:41:48.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 5,
               "Title": "IResourceQuantityAggregateRepository.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\Repositories\\IResourceQuantityAggregateRepository.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\Repositories\\IResourceQuantityAggregateRepository.cs",
               "RelativeDocumentMoniker": "WMS.Domain\\Repositories\\IResourceQuantityAggregateRepository.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\Repositories\\IResourceQuantityAggregateRepository.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\Repositories\\IResourceQuantityAggregateRepository.cs",
               "RelativeToolTip": "WMS.Domain\\Repositories\\IResourceQuantityAggregateRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T21:02:42.25Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ReceiptDocumentInfoResponse.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\ReceiptDocument\\Response\\ReceiptDocumentInfoResponse.cs",
-              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\ReceiptDocument\\Response\\ReceiptDocumentInfoResponse.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\ReceiptDocument\\Response\\ReceiptDocumentInfoResponse.cs",
-              "RelativeToolTip": "WMS.Application\\DTOs\\ReceiptDocument\\Response\\ReceiptDocumentInfoResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ResourceQuantityAggregateRepository.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\Repositories\\ResourceQuantityAggregateRepository.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\Repositories\\ResourceQuantityAggregateRepository.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\Repositories\\ResourceQuantityAggregateRepository.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\Repositories\\ResourceQuantityAggregateRepository.cs",
+              "ViewState": "AgIAABwAAAAAzMzMzMz0vywAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T21:10:28.525Z",
+              "WhenOpened": "2025-08-13T23:21:27.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResourcesService.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\Services\\ResourcesService.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\Services\\ResourcesService.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\Services\\ResourcesService.cs",
+              "RelativeToolTip": "WMS.Application\\Services\\ResourcesService.cs",
+              "ViewState": "AgIAAGgAAAAAAwAAAAAcwHsAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T18:18:09.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReceiptsService.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\Services\\ReceiptsService.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\Services\\ReceiptsService.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\Services\\ReceiptsService.cs",
+              "RelativeToolTip": "WMS.Application\\Services\\ReceiptsService.cs",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAcwOIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T20:36:55.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UnitOfMeasuresService.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\Services\\UnitOfMeasuresService.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\Services\\UnitOfMeasuresService.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\Services\\UnitOfMeasuresService.cs",
+              "RelativeToolTip": "WMS.Application\\Services\\UnitOfMeasuresService.cs",
+              "ViewState": "AgIAAHgAAAAAnJmZmZkXwJYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T18:22:33.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EditUnitOfMeasure.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\UnitOfMeasure\\EditUnitOfMeasure.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\UnitOfMeasure\\EditUnitOfMeasure.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\UnitOfMeasure\\EditUnitOfMeasure.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\UnitOfMeasure\\EditUnitOfMeasure.razor",
+              "ViewState": "AgIAAEcAAAAA0MzMzMwnwEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T20:32:18.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EditResource.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\Resource\\EditResource.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\Resource\\EditResource.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\Resource\\EditResource.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\Resource\\EditResource.razor",
+              "ViewState": "AgIAANQAAAAAAAAAAAAiwPEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T20:50:47.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CreateReceipt.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\Receipt\\CreateReceipt.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\Receipt\\CreateReceipt.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\Receipt\\CreateReceipt.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\Receipt\\CreateReceipt.razor",
+              "ViewState": "AgIAAL0AAACgyczMzMwvwMMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T18:40:12.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UnitOfMeasureService.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Services\\UnitOfMeasureService.cs",
+              "RelativeDocumentMoniker": "WMS.UI\\Services\\UnitOfMeasureService.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Services\\UnitOfMeasureService.cs",
+              "RelativeToolTip": "WMS.UI\\Services\\UnitOfMeasureService.cs",
+              "ViewState": "AgIAABoAAABAzMzMzMwswCIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T20:27:32.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ReceiptService.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Services\\ReceiptService.cs",
+              "RelativeDocumentMoniker": "WMS.UI\\Services\\ReceiptService.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Services\\ReceiptService.cs",
+              "RelativeToolTip": "WMS.UI\\Services\\ReceiptService.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAewDEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T19:17:50.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ResourceServise.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Services\\ResourceServise.cs",
+              "RelativeDocumentMoniker": "WMS.UI\\Services\\ResourceServise.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Services\\ResourceServise.cs",
+              "RelativeToolTip": "WMS.UI\\Services\\ResourceServise.cs",
+              "ViewState": "AgIAABwAAACAZmZmZmYSwDEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T20:27:13.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EditReceipt.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\Receipt\\EditReceipt.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\Receipt\\EditReceipt.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\Receipt\\EditReceipt.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\Receipt\\EditReceipt.razor",
+              "ViewState": "AgIAANQAAADAcWZmZmYUwBUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T19:20:29.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ReceiptsController.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.API\\Controllers\\V1\\ReceiptsController.cs",
+              "RelativeDocumentMoniker": "WMS.API\\Controllers\\V1\\ReceiptsController.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.API\\Controllers\\V1\\ReceiptsController.cs",
+              "RelativeToolTip": "WMS.API\\Controllers\\V1\\ReceiptsController.cs",
+              "ViewState": "AgIAAC8AAACAzMzMzMwtwA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T18:38:07.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UnitOfMeasures.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\UnitOfMeasure\\UnitOfMeasures.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\UnitOfMeasure\\UnitOfMeasures.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\UnitOfMeasure\\UnitOfMeasures.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\UnitOfMeasure\\UnitOfMeasures.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T20:57:18.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CreateResource.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\Resource\\CreateResource.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\Resource\\CreateResource.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\Resource\\CreateResource.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\Resource\\CreateResource.razor",
+              "ViewState": "AgIAACMAAAAAMzMzMzMLwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T20:51:10.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CreateUnitOfMeasure.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\UnitOfMeasure\\CreateUnitOfMeasure.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\UnitOfMeasure\\CreateUnitOfMeasure.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\UnitOfMeasure\\CreateUnitOfMeasure.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\UnitOfMeasure\\CreateUnitOfMeasure.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T20:26:29.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Receipts.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\Receipt\\Receipts.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\Receipt\\Receipts.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\Receipt\\Receipts.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\Receipt\\Receipts.razor",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T20:35:32.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Resources.razor",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Pages\\Resource\\Resources.razor",
+              "RelativeDocumentMoniker": "WMS.UI\\Pages\\Resource\\Resources.razor",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Pages\\Resource\\Resources.razor",
+              "RelativeToolTip": "WMS.UI\\Pages\\Resource\\Resources.razor",
+              "ViewState": "AgIAACUAAAAAMzMzMzMbwEYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-08-20T20:35:40.464Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.UI\\Program.cs",
+              "RelativeDocumentMoniker": "WMS.UI\\Program.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.UI\\Program.cs",
+              "RelativeToolTip": "WMS.UI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T19:50:18.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ResourceRepository.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\Repositories\\ResourceRepository.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\Repositories\\ResourceRepository.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\Repositories\\ResourceRepository.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\Repositories\\ResourceRepository.cs",
+              "ViewState": "AgIAACQAAAAAZGZmZmb+vwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T18:09:35.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ReceiptDocumentRepository.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\Repositories\\ReceiptDocumentRepository.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\Repositories\\ReceiptDocumentRepository.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\Repositories\\ReceiptDocumentRepository.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\Repositories\\ReceiptDocumentRepository.cs",
+              "ViewState": "AgIAADIAAAAAzczMzMwQwEgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T23:21:55.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "IReceiptDocumentRepository.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\Repositories\\IReceiptDocumentRepository.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\Repositories\\IReceiptDocumentRepository.cs",
               "RelativeDocumentMoniker": "WMS.Domain\\Repositories\\IReceiptDocumentRepository.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\Repositories\\IReceiptDocumentRepository.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\Repositories\\IReceiptDocumentRepository.cs",
               "RelativeToolTip": "WMS.Domain\\Repositories\\IReceiptDocumentRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-13T19:46:11.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "ReceiptDocumentParamsRequest.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\ReceiptDocument\\Request\\ReceiptDocumentParamsRequest.cs",
-              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\ReceiptDocument\\Request\\ReceiptDocumentParamsRequest.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\ReceiptDocument\\Request\\ReceiptDocumentParamsRequest.cs",
-              "RelativeToolTip": "WMS.Application\\DTOs\\ReceiptDocument\\Request\\ReceiptDocumentParamsRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T21:16:11.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 24,
-              "Title": "IReceiptItemRepository.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Domain\\Repositories\\IReceiptItemRepository.cs",
-              "RelativeDocumentMoniker": "WMS.Domain\\Repositories\\IReceiptItemRepository.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Domain\\Repositories\\IReceiptItemRepository.cs",
-              "RelativeToolTip": "WMS.Domain\\Repositories\\IReceiptItemRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Title": "ReceiptItemRepository.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\Repositories\\ReceiptItemRepository.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\Repositories\\ReceiptItemRepository.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\Repositories\\ReceiptItemRepository.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\Repositories\\ReceiptItemRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowCsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T19:44:47.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "ReceiptItemParamsRequest.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\ReceiptItem\\Request\\ReceiptItemParamsRequest.cs",
-              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\ReceiptItem\\Request\\ReceiptItemParamsRequest.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\ReceiptItem\\Request\\ReceiptItemParamsRequest.cs",
-              "RelativeToolTip": "WMS.Application\\DTOs\\ReceiptItem\\Request\\ReceiptItemParamsRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T21:08:03.863Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "ReceiptItemResponse.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\ReceiptItem\\Response\\ReceiptItemResponse.cs",
-              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\ReceiptItem\\Response\\ReceiptItemResponse.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\ReceiptItem\\Response\\ReceiptItemResponse.cs",
-              "RelativeToolTip": "WMS.Application\\DTOs\\ReceiptItem\\Response\\ReceiptItemResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T21:09:59.091Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T23:20:15.5Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 26,
-              "Title": "UnitOfMeasureParamsRequest.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\UnitOfMeasure\\Request\\UnitOfMeasureParamsRequest.cs",
-              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\UnitOfMeasure\\Request\\UnitOfMeasureParamsRequest.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\UnitOfMeasure\\Request\\UnitOfMeasureParamsRequest.cs",
-              "RelativeToolTip": "WMS.Application\\DTOs\\UnitOfMeasure\\Request\\UnitOfMeasureParamsRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ResourceQuantityAggregateConfiguration.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceQuantityAggregateConfiguration.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceQuantityAggregateConfiguration.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceQuantityAggregateConfiguration.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceQuantityAggregateConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T21:10:45.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-13T23:06:59.732Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\ApplicationDbContext.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAA0AAAAANDMzMzPzvxwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T22:49:26.144Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
+              "Title": "UnitOfMeasureConfiguration.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\UnitOfMeasureConfiguration.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\UnitOfMeasureConfiguration.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\UnitOfMeasureConfiguration.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\UnitOfMeasureConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T22:59:14.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ResourceConfiguration.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceConfiguration.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceConfiguration.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceConfiguration.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ResourceConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T22:59:05.126Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ReceiptItemConfiguration.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptItemConfiguration.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptItemConfiguration.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptItemConfiguration.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptItemConfiguration.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T23:03:30.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ReceiptDocumentConfiguration.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptDocumentConfiguration.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptDocumentConfiguration.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptDocumentConfiguration.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\Persistens\\EntityConfigurations\\ReceiptDocumentConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T22:58:32.407Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "UnitOfMeasure.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\Entities\\UnitOfMeasure.cs",
+              "RelativeDocumentMoniker": "WMS.Domain\\Entities\\UnitOfMeasure.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\Entities\\UnitOfMeasure.cs",
+              "RelativeToolTip": "WMS.Domain\\Entities\\UnitOfMeasure.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAwwDsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T11:41:53.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Resource.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\Entities\\Resource.cs",
+              "RelativeDocumentMoniker": "WMS.Domain\\Entities\\Resource.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\Entities\\Resource.cs",
+              "RelativeToolTip": "WMS.Domain\\Entities\\Resource.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAwwDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T11:42:59.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ReceiptItem.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\Entities\\ReceiptItem.cs",
+              "RelativeDocumentMoniker": "WMS.Domain\\Entities\\ReceiptItem.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\Entities\\ReceiptItem.cs",
+              "RelativeToolTip": "WMS.Domain\\Entities\\ReceiptItem.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAcwEUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T11:28:46.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ReceiptDocument.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\Entities\\ReceiptDocument.cs",
+              "RelativeDocumentMoniker": "WMS.Domain\\Entities\\ReceiptDocument.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\Entities\\ReceiptDocument.cs",
+              "RelativeToolTip": "WMS.Domain\\Entities\\ReceiptDocument.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T11:41:30.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IReceiptsService.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\Services\\Abstractions\\IReceiptsService.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\Services\\Abstractions\\IReceiptsService.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\Services\\Abstractions\\IReceiptsService.cs",
+              "RelativeToolTip": "WMS.Application\\Services\\Abstractions\\IReceiptsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T21:50:33.484Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "PostgresUnitOfWork.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Infrastructure\\PostgresUnitOfWork.cs",
+              "RelativeDocumentMoniker": "WMS.Infrastructure\\PostgresUnitOfWork.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Infrastructure\\PostgresUnitOfWork.cs",
+              "RelativeToolTip": "WMS.Infrastructure\\PostgresUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T22:43:34.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ApplicationExtensions.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\Extensions\\ApplicationExtensions.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\Extensions\\ApplicationExtensions.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\Extensions\\ApplicationExtensions.cs",
+              "RelativeToolTip": "WMS.Application\\Extensions\\ApplicationExtensions.cs",
+              "ViewState": "AgIAAAoAAADAmZmZmZkdwBsAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T22:26:09.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\UnitOfWork\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "WMS.Domain\\UnitOfWork\\IUnitOfWork.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\UnitOfWork\\IUnitOfWork.cs",
+              "RelativeToolTip": "WMS.Domain\\UnitOfWork\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T21:41:48.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ReceiptDocumentInfoResponse.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\DTOs\\ReceiptDocument\\Response\\ReceiptDocumentInfoResponse.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\ReceiptDocument\\Response\\ReceiptDocumentInfoResponse.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\DTOs\\ReceiptDocument\\Response\\ReceiptDocumentInfoResponse.cs",
+              "RelativeToolTip": "WMS.Application\\DTOs\\ReceiptDocument\\Response\\ReceiptDocumentInfoResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T21:10:28.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "ReceiptDocumentParamsRequest.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\DTOs\\ReceiptDocument\\Request\\ReceiptDocumentParamsRequest.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\ReceiptDocument\\Request\\ReceiptDocumentParamsRequest.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\DTOs\\ReceiptDocument\\Request\\ReceiptDocumentParamsRequest.cs",
+              "RelativeToolTip": "WMS.Application\\DTOs\\ReceiptDocument\\Request\\ReceiptDocumentParamsRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T21:16:11.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "IReceiptItemRepository.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Domain\\Repositories\\IReceiptItemRepository.cs",
+              "RelativeDocumentMoniker": "WMS.Domain\\Repositories\\IReceiptItemRepository.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Domain\\Repositories\\IReceiptItemRepository.cs",
+              "RelativeToolTip": "WMS.Domain\\Repositories\\IReceiptItemRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T19:44:47.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "ReceiptItemParamsRequest.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\DTOs\\ReceiptItem\\Request\\ReceiptItemParamsRequest.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\ReceiptItem\\Request\\ReceiptItemParamsRequest.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\DTOs\\ReceiptItem\\Request\\ReceiptItemParamsRequest.cs",
+              "RelativeToolTip": "WMS.Application\\DTOs\\ReceiptItem\\Request\\ReceiptItemParamsRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T21:08:03.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ReceiptItemResponse.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\DTOs\\ReceiptItem\\Response\\ReceiptItemResponse.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\ReceiptItem\\Response\\ReceiptItemResponse.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\DTOs\\ReceiptItem\\Response\\ReceiptItemResponse.cs",
+              "RelativeToolTip": "WMS.Application\\DTOs\\ReceiptItem\\Response\\ReceiptItemResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T21:09:59.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "UnitOfMeasureParamsRequest.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\DTOs\\UnitOfMeasure\\Request\\UnitOfMeasureParamsRequest.cs",
+              "RelativeDocumentMoniker": "WMS.Application\\DTOs\\UnitOfMeasure\\Request\\UnitOfMeasureParamsRequest.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\DTOs\\UnitOfMeasure\\Request\\UnitOfMeasureParamsRequest.cs",
+              "RelativeToolTip": "WMS.Application\\DTOs\\UnitOfMeasure\\Request\\UnitOfMeasureParamsRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T21:10:45.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
               "Title": "UnitOfMeasureResponse.cs",
-              "DocumentMoniker": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\UnitOfMeasure\\Response\\UnitOfMeasureResponse.cs",
+              "DocumentMoniker": "D:\\repos\\WMS\\WMS.Application\\DTOs\\UnitOfMeasure\\Response\\UnitOfMeasureResponse.cs",
               "RelativeDocumentMoniker": "WMS.Application\\DTOs\\UnitOfMeasure\\Response\\UnitOfMeasureResponse.cs",
-              "ToolTip": "D:\\repos\\WMSystem\\WMS.Application\\DTOs\\UnitOfMeasure\\Response\\UnitOfMeasureResponse.cs",
+              "ToolTip": "D:\\repos\\WMS\\WMS.Application\\DTOs\\UnitOfMeasure\\Response\\UnitOfMeasureResponse.cs",
               "RelativeToolTip": "WMS.Application\\DTOs\\UnitOfMeasure\\Response\\UnitOfMeasureResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-13T21:10:39.626Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "WhenOpened": "2025-08-13T21:10:39.626Z"
             }
           ]
         }
