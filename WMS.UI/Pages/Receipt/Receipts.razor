@@ -1,7 +1,13 @@
 ﻿@page "/receipts"
+@using BlazorClient.Services
 @using WMS.Application.DTOs.ReceiptDocument.Response
+@using WMS.UI.Models.Enums
+@using WMS.UI.Models.Resource.Response
+@using WMS.UI.Models.UnitOfMeasure.Response
 @using WMS.UI.Services
 @inject ReceiptsService ReceiptsService
+@inject ResourceService ResourceService
+@inject UnitOfMeasureService UnitOfMeasureService
 @inject NavigationManager NavigationManager
 
 <h3 class="page-title">Документы поступления</h3>
@@ -11,122 +17,424 @@
         <label>Дата от:</label>
         <input type="date" @bind="startDate" @bind:format="yyyy-MM-dd" class="form-control" />
     </div>
-    
+
     <div class="filter-group">
         <label>Дата до:</label>
         <input type="date" @bind="endDate" @bind:format="yyyy-MM-dd" class="form-control" />
     </div>
-    
+
     <div class="filter-group">
         <label>Номер заявки:</label>
         <input @bind="applicationNumberFilter" class="form-control" />
     </div>
-    
+
     <div class="filter-group">
-        <label>Ресурс:</label>
-        <input @bind="resourceTitleFilter" class="form-control" />
+        <label>Ресурсы:</label>
+        <div class="dropdown-container">
+            <button class="dropdown-toggle" @onclick="ToggleResourcesDropdown">
+                @GetResourcesButtonText()
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            @if (showResourcesDropdown)
+            {
+            <div class="dropdown-content">
+                <div class="dropdown-header">
+                    <input type="text" @bind="resourceSearch" placeholder="Поиск..."
+                           class="form-control search-input" @oninput="() => { }" />
+                    <button @onclick="ToggleAllResources" class="btn-toggle-all">
+                        @(allResourcesSelected ? "✗" : "✓")
+                    </button>
+                </div>
+                <div class="dropdown-list">
+                    @foreach (var resource in filteredResources)
+                    {
+                    <div class="dropdown-item">
+                        <label>
+                            <input type="checkbox" checked="@IsResourceSelected(resource.Id)"
+                                   @onchange="@((e) => ToggleResource(resource.Id, (bool)e.Value))" />
+                            @resource.Title
+                        </label>
+                    </div>
+                    }
+                </div>
+            </div>
+            }
+        </div>
     </div>
-    
+
     <div class="filter-group">
         <label>Ед. измерения:</label>
-        <input @bind="unitOfMeasureTitleFilter" class="form-control" />
+        <div class="dropdown-container">
+            <button class="dropdown-toggle" @onclick="ToggleUnitsDropdown">
+                @GetUnitsButtonText()
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            @if (showUnitsDropdown)
+            {
+                <div class="dropdown-content">
+                    <div class="dropdown-header">
+                        <input type="text" @bind="unitSearch" placeholder="Поиск..."
+                               class="form-control search-input" @oninput="() => { }" />
+                        <button @onclick="ToggleAllUnits" class="btn-toggle-all">
+                            @(allUnitsSelected ? "✗" : "✓")
+                        </button>
+                    </div>
+                    <div class="dropdown-list">
+                        @foreach (var unit in filteredUnits)
+                        {
+                            <div class="dropdown-item">
+                                <label>
+                                    <input type="checkbox" checked="@IsUnitSelected(unit.Id)"
+                                           @onchange="@((e) => ToggleUnit(unit.Id, (bool)e.Value))" />
+                                    @unit.Title
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
     </div>
     
     <button @onclick="LoadReceipts" class="btn btn-primary">Применить</button>
     <button @onclick="ResetFilters" class="btn btn-secondary">Сбросить</button>
-    <button @onclick="NavigateToCreate" class="btn btn-add">
-        <i class="fas fa-plus"></i> Добавить
-    </button>
+
+    <div class="filter-actions">
+        <button @onclick="NavigateToCreate" class="btn btn-add">
+            <i class="fas fa-plus"></i> Добавить
+        </button>
+    </div>
 </div>
 
 @if (receipts == null)
 {
-    <p class="loading">Загрузка...</p>
+<p class="loading">Загрузка документов...</p>
 }
 else if (!receipts.Any())
 {
-    <p class="no-data">Нет документов поступления</p>
+<p class="no-data">Нет документов поступления</p>
 }
 else
 {
-    <div class="document-container">
-        @foreach (var receipt in receipts)
-        {
-            <div class="document-card">
-                <div class="document-header">
-                    <a @onclick="() => NavigateToEdit(receipt.Id)" class="document-number">@receipt.ApplicationNumber</a>
-                    <span class="document-date">@receipt.Date.ToString("dd.MM.yyyy")</span>
-                </div>
-                
-                <div class="document-body">
-                    <div class="document-row header-row">
-                        <div class="resource-col">Ресурс</div>
-                        <div class="unit-col">Ед.изм</div>
-                        <div class="quantity-col">Кол-во</div>
-                    </div>
-                    
-                    @foreach (var item in receipt.Items)
-                    {
-                        <div class="document-row">
-                            <div class="resource-col">@item.ResourceTitle</div>
-                            <div class="unit-col">@item.UnitOfMeasureTitle</div>
-                            <div class="quantity-col">@item.Quantity</div>
-                        </div>
-                    }
-                </div>
+<div class="document-container">
+    @foreach (var receipt in receipts)
+    {
+    <div class="document-card">
+        <div class="document-header">
+            <a @onclick="() => NavigateToEdit(receipt.Id)" class="document-number">@receipt.ApplicationNumber</a>
+            <span class="document-date">@receipt.Date.ToString("dd.MM.yyyy")</span>
+        </div>
+
+        <div class="document-body">
+            <div class="document-row header-row">
+                <div class="resource-col">Ресурс</div>
+                <div class="unit-col">Ед.изм</div>
+                <div class="quantity-col">Кол-во</div>
             </div>
-        }
+
+            @foreach (var item in receipt.Items)
+            {
+            <div class="document-row">
+                <div class="resource-col">@item.ResourceTitle</div>
+                <div class="unit-col">@item.UnitOfMeasureTitle</div>
+                <div class="quantity-col">@item.Quantity.ToString("N2")</div>
+            </div>
+            }
+        </div>
     </div>
+    }
+</div>
 }
 
+<style>
+    .dropdown-container {
+        position: relative;
+    }
+
+    .dropdown-toggle {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background: white;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .dropdown-toggle:hover {
+        border-color: #aaa;
+    }
+
+    .dropdown-arrow {
+        font-size: 10px;
+        transition: transform 0.2s;
+    }
+
+    .dropdown-toggle.active .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+
+    .dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-top: 4px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 1000;
+        max-height: 300px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropdown-header {
+        padding: 8px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        gap: 8px;
+        background: #f8f9fa;
+    }
+
+    .search-input {
+        flex: 1;
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+
+    .btn-toggle-all {
+        padding: 4px 8px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        background: white;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+    .dropdown-list {
+        overflow-y: auto;
+        max-height: 200px;
+        padding: 4px;
+    }
+
+    .dropdown-item {
+        padding: 6px 8px;
+        margin: 2px 0;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f8f9fa;
+    }
+
+    .dropdown-item label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .filters {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+    }
+
+    .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .filter-group label {
+        font-weight: 500;
+        margin-bottom: 2px;
+        font-size: 14px;
+    }
+
+    .filter-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background: #007bff;
+        color: white;
+    }
+
+    .btn-secondary {
+        background: #6c757d;
+        color: white;
+    }
+
+    .btn-add {
+        background: #28a745;
+        color: white;
+        margin-left: auto;
+    }
+</style>
+
 @code {
-    private List<ReceiptDocumentInfoResponse>? receipts;
-    private DateTime? startDate;
-    private DateTime? endDate;
-    private string? applicationNumberFilter;
-    private string? resourceTitleFilter;
-    private string? unitOfMeasureTitleFilter;
+private List<ReceiptDocumentInfoResponse>? receipts;
+private DateTime? startDate;
+private DateTime? endDate;
+private string? applicationNumberFilter;
+private string resourceSearch = "";
+private string unitSearch = "";
+private bool showResourcesDropdown = false;
+private bool showUnitsDropdown = false;
 
-    protected override async Task OnInitializedAsync()
-    {
-        await LoadReceipts();
-    }
+private List<ResourceResponse> allResources = new();
+private List<UnitOfMeasureResponse> allUnitsOfMeasure = new();
+private HashSet<Guid> selectedResourceIds = new();
+private HashSet<Guid> selectedUnitOfMeasureIds = new();
 
-    private async Task LoadReceipts()
-    {
-        receipts = await ReceiptsService.GetAllWithFiltersAsync(
-            startDate,
-            endDate,
-            applicationNumberFilter,
-            resourceTitleFilter,
-            unitOfMeasureTitleFilter);
-    }
+private List<ResourceResponse> filteredResources => allResources
+.Where(r => string.IsNullOrEmpty(resourceSearch) ||
+r.Title.Contains(resourceSearch, StringComparison.OrdinalIgnoreCase))
+.OrderBy(r => r.Title)
+.ToList();
 
-    private async Task ResetFilters()
-    {
-        startDate = null;
-        endDate = null;
-        applicationNumberFilter = null;
-        resourceTitleFilter = null;
-        unitOfMeasureTitleFilter = null;
-        await LoadReceipts();
-    }
-    
-    private void NavigateToCreate()
-    {
-        NavigationManager.NavigateTo("/receipt/create");
-    }
+private List<UnitOfMeasureResponse> filteredUnits => allUnitsOfMeasure
+.Where(u => string.IsNullOrEmpty(unitSearch) ||
+u.Title.Contains(unitSearch, StringComparison.OrdinalIgnoreCase))
+.OrderBy(u => u.Title)
+.ToList();
 
-    private void NavigateToEdit(Guid id)
-    {
-        NavigationManager.NavigateTo($"/receipt/edit/{id}");
-    }
+private bool allResourcesSelected => selectedResourceIds.Count == allResources.Count;
+private bool allUnitsSelected => selectedUnitOfMeasureIds.Count == allUnitsOfMeasure.Count;
 
-    private async Task DeleteReceipt(Guid id)
-    {
-        if (await ReceiptsService.DeleteAsync(id))
-        {
-            await LoadReceipts();
-        }
-    }
+private string GetResourcesButtonText()
+{
+if (selectedResourceIds.Count == 0) return "Выберите ресурсы";
+if (selectedResourceIds.Count == 1) return "1 ресурс";
+if (selectedResourceIds.Count == allResources.Count) return "Все ресурсы";
+return $"{selectedResourceIds.Count} ресурсов";
+}
+
+private string GetUnitsButtonText()
+{
+if (selectedUnitOfMeasureIds.Count == 0) return "Выберите ед.изм";
+if (selectedUnitOfMeasureIds.Count == 1) return "1 ед.изм";
+if (selectedUnitOfMeasureIds.Count == allUnitsOfMeasure.Count) return "Все ед.изм";
+return $"{selectedUnitOfMeasureIds.Count} ед.изм";
+}
+
+protected override async Task OnInitializedAsync()
+{
+await LoadReferenceData();
+await LoadReceipts();
+}
+
+private async Task LoadReferenceData()
+{
+allResources = await ResourceService.GetByStateAsync(State.Working);
+allUnitsOfMeasure = await UnitOfMeasureService.GetByStateAsync(State.Working);
+}
+
+private void ToggleResourcesDropdown()
+{
+showResourcesDropdown = !showResourcesDropdown;
+showUnitsDropdown = false;
+}
+
+private void ToggleUnitsDropdown()
+{
+showUnitsDropdown = !showUnitsDropdown;
+showResourcesDropdown = false;
+}
+
+private void ToggleResource(Guid resourceId, bool isSelected)
+{
+if (isSelected)
+selectedResourceIds.Add(resourceId);
+else
+selectedResourceIds.Remove(resourceId);
+}
+
+private void ToggleUnit(Guid unitId, bool isSelected)
+{
+if (isSelected)
+selectedUnitOfMeasureIds.Add(unitId);
+else
+selectedUnitOfMeasureIds.Remove(unitId);
+}
+
+private void ToggleAllResources()
+{
+if (allResourcesSelected)
+selectedResourceIds.Clear();
+else
+selectedResourceIds = new HashSet<Guid>(allResources.Select(r => r.Id));
+}
+
+private void ToggleAllUnits()
+{
+if (allUnitsSelected)
+selectedUnitOfMeasureIds.Clear();
+else
+selectedUnitOfMeasureIds = new HashSet<Guid>(allUnitsOfMeasure.Select(u => u.Id));
+}
+
+private bool IsResourceSelected(Guid resourceId) => selectedResourceIds.Contains(resourceId);
+private bool IsUnitSelected(Guid unitId) => selectedUnitOfMeasureIds.Contains(unitId);
+
+private async Task LoadReceipts()
+{
+showResourcesDropdown = false;
+showUnitsDropdown = false;
+
+var resourceIdsList = selectedResourceIds.Any() ? selectedResourceIds.ToList() : null;
+var unitIdsList = selectedUnitOfMeasureIds.Any() ? selectedUnitOfMeasureIds.ToList() : null;
+
+receipts = await ReceiptsService.GetAllWithFiltersAsync(
+startDate,
+endDate,
+applicationNumberFilter,
+resourceIdsList,
+unitIdsList
+);
+}
+
+private async Task ResetFilters()
+{
+startDate = null;
+endDate = null;
+applicationNumberFilter = null;
+resourceSearch = "";
+unitSearch = "";
+selectedResourceIds.Clear();
+selectedUnitOfMeasureIds.Clear();
+showResourcesDropdown = false;
+showUnitsDropdown = false;
+await LoadReceipts();
+}
+
+private void NavigateToCreate() => NavigationManager.NavigateTo("/receipt/create");
+private void NavigateToEdit(Guid id) => NavigationManager.NavigateTo($"/receipt/edit/{id}");
+
+private async Task DeleteReceipt(Guid id)
+{
+if (await ReceiptsService.DeleteAsync(id))
+await LoadReceipts();
+}
 }

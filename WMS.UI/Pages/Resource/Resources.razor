@@ -12,6 +12,14 @@
         <button @onclick="() => LoadResources(State.Working)" class="@(currentState == State.Working ? "active" : "")">Рабочие</button>
         <button @onclick="() => LoadResources(State.Archived)" class="@(currentState == State.Archived ? "active" : "")">Архивные</button>
     </div>
+    
+    <div class="filters">
+        <div class="filter-group">
+            <input placeholder="Поиск..." @bind="searchTerm" @bind:event="oninput" class="form-control"/>
+        </div>
+        <button @onclick="ApplySearch" class="btn btn-primary">🔍</button>
+    </div>
+    
     <button @onclick="NavigateToCreate" class="add-button">Добавить</button>
 </div>
 
@@ -51,18 +59,24 @@ else
     private List<ResourceResponse> resources = new();
     private bool isLoading = true;
     private State currentState = State.Working;
+    private string searchTerm = "";
 
     protected override async Task OnInitializedAsync()
     {
         await LoadResources(currentState);
     }
 
-    private async Task LoadResources(State state)
+    private async Task LoadResources(State state, string? search = null)
     {
         isLoading = true;
         currentState = state;
-        resources = await ResourceService.GetByStateAsync(state);
+        resources = await ResourceService.GetByStateAsync(state, search);
         isLoading = false;
+    }
+
+    private async Task ApplySearch()
+    {
+        await LoadResources(currentState, searchTerm);
     }
 
     private void NavigateToCreate()

@@ -5,13 +5,21 @@
 @inject UnitOfMeasureService UnitOfMeasureService
 @inject NavigationManager NavigationManager
 
-<h3>Еденицы измерения</h3>
+<h3>Единицы измерения</h3>
 
 <div class="resource-actions">
     <div class="state-buttons">
         <button @onclick="() => LoadUnitOfMeasures(State.Working)" class="@(currentState == State.Working ? "active" : "")">Рабочие</button>
         <button @onclick="() => LoadUnitOfMeasures(State.Archived)" class="@(currentState == State.Archived ? "active" : "")">Архивные</button>
     </div>
+    
+    <div class="filters">
+        <div class="filter-group">
+            <input placeholder="Поиск..." @bind="searchTerm" @bind:event="oninput" class="form-control"/>
+        </div>
+        <button @onclick="ApplySearch" class="btn btn-primary">🔍</button>
+    </div>
+    
     <button @onclick="NavigateToCreate" class="add-button">Добавить</button>
 </div>
 
@@ -21,7 +29,7 @@
 }
 else if (!unitOfMeasures.Any())
 {
-    <p>Нет едениц измерения</p>
+    <p>Нет единиц измерения</p>
 }
 else
 {
@@ -32,13 +40,13 @@ else
         </tr>
         </thead>
         <tbody>
-        @foreach (var resource in unitOfMeasures)
+        @foreach (var unit in unitOfMeasures)
         {
             <tr>
                 <td>
-                    <button @onclick="() => NavigateToReceipt(resource.Id)" 
+                    <button @onclick="() => NavigateToEdit(unit.Id)" 
                             class="resource-button">
-                        @resource.Title
+                        @unit.Title
                     </button>
                 </td>
             </tr>
@@ -51,18 +59,24 @@ else
     private List<UnitOfMeasureResponse> unitOfMeasures = new();
     private bool isLoading = true;
     private State currentState = State.Working;
+    private string searchTerm = "";
 
     protected override async Task OnInitializedAsync()
     {
         await LoadUnitOfMeasures(currentState);
     }
 
-    private async Task LoadUnitOfMeasures(State state)
+    private async Task LoadUnitOfMeasures(State state, string? search = null)
     {
         isLoading = true;
         currentState = state;
-        unitOfMeasures = await UnitOfMeasureService.GetByStateAsync(state);
+        unitOfMeasures = await UnitOfMeasureService.GetByStateAsync(state, search);
         isLoading = false;
+    }
+
+    private async Task ApplySearch()
+    {
+        await LoadUnitOfMeasures(currentState, searchTerm);
     }
 
     private void NavigateToCreate()
@@ -70,7 +84,7 @@ else
         NavigationManager.NavigateTo("/unit-of-measure/create");
     }
 
-    private void NavigateToReceipt(Guid id)
+    private void NavigateToEdit(Guid id)
     {
         NavigationManager.NavigateTo($"/unit-of-measure/edit/{id}");
     }

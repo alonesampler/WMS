@@ -41,14 +41,14 @@ public class ReceiptDocumentRepository : IReceiptDocumentRepository
         DateTime? startDate = null,
         DateTime? endDate = null,
         string? applicationNumberFilter = null,
-        string? resourceTitleFilter = null,
-        string? unitOfMeasureTitleFilter = null)
+        List<Guid>? resourceIds = null,
+        List<Guid>? unitOfMeasureIds = null)
     {
         var query = _dbContext.ReceiptDocuments
             .Include(d => d.Items)
-                .ThenInclude(i => i.Resource)
+            .ThenInclude(i => i.Resource)
             .Include(d => d.Items)
-                .ThenInclude(i => i.UnitOfMeasure)
+            .ThenInclude(i => i.UnitOfMeasure)
             .AsQueryable();
 
         if (startDate.HasValue)
@@ -60,11 +60,13 @@ public class ReceiptDocumentRepository : IReceiptDocumentRepository
         if (!string.IsNullOrWhiteSpace(applicationNumberFilter))
             query = query.Where(d => d.ApplicationNumber.Contains(applicationNumberFilter));
 
-        if (!string.IsNullOrWhiteSpace(resourceTitleFilter))
-            query = query.Where(d => d.Items.Any(i => i.Resource.Title.Contains(resourceTitleFilter)));
+        // Фильтр по ID ресурсов
+        if (resourceIds != null && resourceIds.Any())
+            query = query.Where(d => d.Items.Any(i => resourceIds.Contains(i.ResourceId)));
 
-        if (!string.IsNullOrWhiteSpace(unitOfMeasureTitleFilter))
-            query = query.Where(d => d.Items.Any(i => i.UnitOfMeasure.Title.Contains(unitOfMeasureTitleFilter)));
+        // Фильтр по ID единиц измерения
+        if (unitOfMeasureIds != null && unitOfMeasureIds.Any())
+            query = query.Where(d => d.Items.Any(i => unitOfMeasureIds.Contains(i.UnitOfMeasureId)));
 
         return await query.AsNoTracking().ToListAsync();
     }

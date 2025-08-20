@@ -1,4 +1,4 @@
-﻿@page "/receipt/edit/{Id}"
+﻿@page "/receipt/edit/{Id:guid}"
 @using BlazorClient.Services
 @using WMS.UI.Models.Enums
 @using WMS.UI.Models.ReceiptDocument.Request
@@ -21,7 +21,7 @@
 
 @if (isLoading)
 {
-    <div class="loading">Загрузка данных документа...</div>
+    <p>Загрузка...</p>
 }
 else
 {
@@ -33,7 +33,7 @@ else
 
         <div class="form-group">
             <label>Дата:</label>
-            <input type="date" @bind="date" @bind:format="yyyy-MM-dd" class="form-control" />
+            <input type="date" @bind="date" class="form-control" />
         </div>
 
         <div class="items-section">
@@ -41,7 +41,7 @@ else
             
             @foreach (var (item, index) in items.Select((item, i) => (item, i)))
             {
-                <div class="item-card" key="@item.Id">
+                <div class="item-card">
                     <div class="form-row">
                         <div class="form-group">
                             <label>Ресурс:</label>
@@ -70,14 +70,14 @@ else
                             <input type="number" @bind="item.Quantity" min="0.01" step="0.01" class="form-control" />
                         </div>
 
-                        <button type="button" @onclick="() => RemoveItem(index)" class="btn btn-danger">
+                        <button type="button" @onclick="() => RemoveItem(index)" class="btn btn-delete">
                             <i class="fas fa-trash"></i>
                         </button>
                     </div>
                 </div>
             }
 
-            <button type="button" @onclick="AddItem" class="btn btn-success">
+            <button type="button" @onclick="AddItem" class="btn btn-add">
                 <i class="fas fa-plus"></i> Добавить позицию
             </button>
         </div>
@@ -102,7 +102,7 @@ else
     [Parameter]
     public Guid Id { get; set; }
 
-    private string applicationNumber = string.Empty;
+    private string applicationNumber = "";
     private DateTime date = DateTime.Today;
     private List<ReceiptItemModel> items = new();
     
@@ -117,34 +117,34 @@ else
     {
         try
         {
-            await Task.WhenAll(
-                LoadResources(),
-                LoadUnitsOfMeasure()
-            );
+            await LoadResources();
+            await LoadUnitsOfMeasure();
+            
+            var receipt = await ReceiptsService.GetByIdAsync(Id);
+            
+            if (receipt != null)
+            {
+                applicationNumber = receipt.ApplicationNumber;
+                date = new DateTime(receipt.Date.Year, receipt.Date.Month, receipt.Date.Day, 0, 0, 0, DateTimeKind.Utc);
 
-            var document = await ReceiptsService.GetByIdAsync(Id);
-        
-            if (document == null)
+                
+                items = receipt.Items.Select(i => new ReceiptItemModel
+                {
+                    Id = i.Id, // Добавляем ID позиции
+                    ResourceId = i.ResourceId,
+                    UnitOfMeasureId = i.UnitOfMeasureId,
+                    Quantity = i.Quantity
+                }).ToList();
+            }
+            else
             {
                 errorMessage = "Документ не найден";
-                return;
             }
-
-            applicationNumber = document.ApplicationNumber;
-            date = document.Date;
-        
-            items = document.Items.Select(item => new ReceiptItemModel
-            {
-                Id = item.Id,
-                ResourceId = item.Resource.Id,
-                UnitOfMeasureId = item.UnitOfMeasure.Id,
-                Quantity = item.Quantity
-            }).ToList();
         }
         catch (Exception ex)
         {
             Logger.LogError(ex, "Ошибка при загрузке документа");
-            errorMessage = "Произошла ошибка при загрузке документа";
+            errorMessage = "Ошибка при загрузке документа";
         }
         finally
         {
@@ -154,38 +154,22 @@ else
 
     private async Task LoadResources()
     {
-        try
-        {
-            resources = await ResourceService.GetByStateAsync(State.Working);
-        }
-        catch (Exception ex)
-        {
-            Logger.LogError(ex, "Ошибка при загрузке ресурсов");
-            errorMessage = "Не удалось загрузить список ресурсов";
-        }
+        resources = await ResourceService.GetByStateAsync(State.Working);
     }
 
     private async Task LoadUnitsOfMeasure()
     {
-        try
-        {
-            unitsOfMeasure = await UnitOfMeasureService.GetByStateAsync(State.Working);
-        }
-        catch (Exception ex)
-        {
-            Logger.LogError(ex, "Ошибка при загрузке единиц измерения");
-            errorMessage = "Не удалось загрузить список единиц измерения";
-        }
+        unitsOfMeasure = await UnitOfMeasureService.GetByStateAsync(State.Working);
     }
 
     private void AddItem()
     {
-        items.Add(new ReceiptItemModel 
-        { 
-            Id = Guid.NewGuid(), // Генерируем новый ID для новой позиции
+        items.Add(new ReceiptItemModel
+        {
+            Id = Guid.NewGuid(), // Генерируем ID для новой позиции
             ResourceId = Guid.Empty,
             UnitOfMeasureId = Guid.Empty,
-            Quantity = 1 // Устанавливаем значение по умолчанию
+            Quantity = 1 // Ставим значение по умолчанию 1 вместо 0
         });
     }
 
@@ -204,20 +188,13 @@ else
         
         try
         {
-            // Валидация основных полей
             if (string.IsNullOrWhiteSpace(applicationNumber))
             {
-                errorMessage = "Номер заявки обязателен для заполнения";
+                errorMessage = "Номер заявки обязателен";
                 return;
             }
 
-            // Валидация позиций
-            if (!items.Any())
-            {
-                errorMessage = "Документ должен содержать хотя бы одну позицию";
-                return;
-            }
-
+            // Проверяем все позиции
             foreach (var item in items)
             {
                 if (item.ResourceId == Guid.Empty)
@@ -238,38 +215,30 @@ else
                     return;
                 }
             }
+            
+            var normalizedDate = new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, DateTimeKind.Utc);
 
-            // Подготавливаем запрос
             var request = new ReceiptDocumentParamsRequest(
-                applicationNumber.Trim(),
-                date,
-                items.Select(i => new ReceiptItemParamsRequest(
-                    i.ResourceId,
-                    i.UnitOfMeasureId,
-                    i.Quantity
-                )).ToList()
+                applicationNumber,
+                normalizedDate,
+                items.Select(i => new ReceiptItemParamsRequest(i.ResourceId, i.UnitOfMeasureId, i.Quantity)).ToList()
             );
 
-            Logger.LogInformation("Отправка запроса на обновление документа: {@Request}", request);
-
-            // Отправляем запрос на обновление
             var result = await ReceiptsService.UpdateAsync(Id, request);
             
             if (result)
             {
-                Logger.LogInformation("Документ успешно обновлен");
                 NavigationManager.NavigateTo("/receipts");
             }
             else
             {
-                errorMessage = "Не удалось обновить документ. Попробуйте снова.";
-                Logger.LogError("Не удалось обновить документ");
+                errorMessage = "Ошибка при сохранении документа";
             }
         }
         catch (Exception ex)
         {
-            errorMessage = "Произошла непредвиденная ошибка";
-            Logger.LogError(ex, "Ошибка при обновлении документа");
+            errorMessage = "Ошибка при сохранении";
+            Logger.LogError(ex, "Ошибка при сохранении документа");
         }
         finally
         {
@@ -282,10 +251,9 @@ else
         NavigationManager.NavigateTo("/receipts");
     }
 
-    // Модель для редактирования позиций документа
     private class ReceiptItemModel
     {
-        public Guid Id { get; set; } // ID позиции (для существующих)
+        public Guid Id { get; set; } // Добавляем ID для отслеживания позиций
         public Guid ResourceId { get; set; }
         public Guid UnitOfMeasureId { get; set; }
         public decimal Quantity { get; set; }

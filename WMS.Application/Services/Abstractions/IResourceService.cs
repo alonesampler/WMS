@@ -14,5 +14,5 @@ public interface IResourceService
     Task<Result> UpdateAsync(Guid id, ResourceParamsRequest @params);
     Task<Result> DeleteAsync(Guid id);
     Task<Result<Resource>> GetByIdAsync(Guid id);
-    Task<Result<List<ResourceResponse>>> GetByStateAsync(State state);
+    Task<Result<List<ResourceResponse>>> GetByStateAsync(State state, string? search = null);
 }

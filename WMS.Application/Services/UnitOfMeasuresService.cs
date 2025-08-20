@@ -20,6 +20,13 @@ public class UnitOfMeasuresService : IUnitOfMeasureService
 
     public async Task<Result> CreateAsync(UnitOfMeasureParamsRequest @params)
     {
+        var existingUnit = await _unitOfWork.UnitOfMeasureRepository.GetByTitleAsync(@params.Title);
+        
+        if (existingUnit != null)
+        {
+            return Result.Fail("Единица измерения с таким названием уже существует");
+        }
+        
         var state = (State)UnitOfMeasure.DEFAULT_STATE_NUMBER;
 
         var unitOfMeasure = UnitOfMeasure.Create(
@@ -81,6 +88,16 @@ public class UnitOfMeasuresService : IUnitOfMeasureService
             return getResult.ToResult();
 
         var unitOfMeasure = getResult.Value;
+        
+        if (!unitOfMeasure.Title.Equals(@params.Title, StringComparison.OrdinalIgnoreCase))
+        {
+            var existingUnit = await _unitOfWork.UnitOfMeasureRepository.GetByTitleAsync(@params.Title);
+            
+            if (existingUnit != null && existingUnit.Id != id)
+            {
+                return Result.Fail("Единица измерения с таким названием уже существует");
+            }
+        }
 
         unitOfMeasure.Update(@params.Title);
 
@@ -117,9 +134,10 @@ public class UnitOfMeasuresService : IUnitOfMeasureService
         return Result.Ok(unitOfMeasure);
     }
     
-    public async Task<Result<List<UnitOfMeasureResponse>>> GetByStateAsync(State state)
+    public async Task<Result<List<UnitOfMeasureResponse>>> GetByStateAsync(State state, string? search = null)
     {
-        var unitOfMeasures = await _unitOfWork.UnitOfMeasureRepository.GetByStateWithFiltersAsync(state);
+        var unitOfMeasures = await _unitOfWork.UnitOfMeasureRepository
+            .GetByStateWithFiltersAsync(state, search);
 
         var response = unitOfMeasures.Select(r => r.ToResponse()).ToList();
 

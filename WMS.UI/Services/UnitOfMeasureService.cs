@@ -51,11 +51,16 @@ public class UnitOfMeasureService
         return response.IsSuccessStatusCode;
     }
     
-    public async Task<List<UnitOfMeasureResponse>> GetByStateAsync(State state)
+    public async Task<List<UnitOfMeasureResponse>> GetByStateAsync(State state, string? search = null)
     {
         try
         {
-            return await _httpClient.GetFromJsonAsync<List<UnitOfMeasureResponse>>($"api/v1/unit-of-measures?state={state}") 
+            var url = $"api/v1/unit-of-measures?state={state}";
+        
+            if (!string.IsNullOrWhiteSpace(search))
+                url += $"&search={Uri.EscapeDataString(search)}";
+
+            return await _httpClient.GetFromJsonAsync<List<UnitOfMeasureResponse>>(url) 
                    ?? new List<UnitOfMeasureResponse>();
         }
         catch

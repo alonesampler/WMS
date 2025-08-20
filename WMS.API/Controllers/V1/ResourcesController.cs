@@ -41,9 +41,12 @@ public class ResourcesController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<List<ResourceResponse>>> GetByState([FromQuery] State state = State.Working)
+    public async Task<ActionResult<List<ResourceResponse>>> GetByState(
+        [FromQuery] State state = State.Working,
+        [FromQuery] string? search = null)
     {
-        var result = await _resourceService.GetByStateAsync(state);
+        var result = await _resourceService.GetByStateAsync(state, search);
+        
         if (result.IsFailed)
             return BadRequest(result.Errors);
 

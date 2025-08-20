@@ -64,7 +64,7 @@ public class ReceiptsService : IReceiptsService
 
         return Result.Ok();
     }
-
+    
     public async Task<Result<ReceiptDocument>> GetByIdAsync(Guid receiptDocumentId)
     {
         var receiptDocument = await _unitOfWork.ReceiptDocumentRepository.GetByIdAsync(receiptDocumentId);
@@ -196,21 +196,20 @@ public class ReceiptsService : IReceiptsService
         DateTime? startDate = null,
         DateTime? endDate = null,
         string? applicationNumberFilter = null,
-        string? resourceTitleFilter = null,
-        string? unitOfMeasureTitleFilter = null)
+        List<Guid>? resourceIds = null,
+        List<Guid>? unitOfMeasureIds = null)
     {
-        var receiptDocuments = await _unitOfWork.ReceiptDocumentRepository.GetAllWithFiltersAsync(
-            startDate,
-            endDate,
-            applicationNumberFilter,
-            resourceTitleFilter,
-            unitOfMeasureTitleFilter
-        );
+        try
+        {
+            var documents = await _unitOfWork.ReceiptDocumentRepository
+                .GetAllWithFiltersAsync(startDate, endDate, applicationNumberFilter, resourceIds, unitOfMeasureIds);
 
-        var result = receiptDocuments
-            .Select(d => d.ToResponse())
-            .ToList();
-
-        return Result.Ok(result);
+            var response = documents.Select(d => d.ToResponse()).ToList();
+            return Result.Ok(response);
+        }
+        catch (Exception ex)
+        {
+            return Result.Fail($"Ошибка при получении документов: {ex.Message}");
+        }
     }
 }

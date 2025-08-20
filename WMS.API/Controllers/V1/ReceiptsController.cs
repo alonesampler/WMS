@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WMS.API.Controllers.Extensions;
 using WMS.Application.DTOs.ReceiptDocument.Request;
 using WMS.Application.DTOs.ReceiptDocument.Response;
 using WMS.Application.Services.Abstractions;
-using WMS.Domain.Entities;
 
 namespace WMS.API.Controllers.V1;
 
@@ -29,14 +29,17 @@ public class ReceiptsController : ControllerBase
     }
 
     [HttpGet("{id:guid}")]
-    public async Task<ActionResult<ReceiptDocument>> GetByIdAsync(Guid id)
+    public async Task<ActionResult<ReceiptDocumentFullResponse>> GetByIdAsync(Guid id)
     {
         var result = await _receiptService.GetByIdAsync(id);
         
         if (result.IsFailed)
             return NotFound(result.Errors.Select(e => e.Message));
         
-        return Ok(result.Value);
+        var document = result.Value;
+        var response = document.ToResponse();
+        
+        return Ok(response);
     }
 
     [HttpDelete("{id:guid}")]
@@ -70,19 +73,19 @@ public class ReceiptsController : ControllerBase
         [FromQuery] DateTime? startDate = null,
         [FromQuery] DateTime? endDate = null,
         [FromQuery] string? applicationNumberFilter = null,
-        [FromQuery] string? resourceTitleFilter = null,
-        [FromQuery] string? unitOfMeasureTitleFilter = null)
+        [FromQuery] List<Guid>? resourceIds = null, // Меняем на ID
+        [FromQuery] List<Guid>? unitOfMeasureIds = null) // Меняем на ID
     {
         var result = await _receiptService.GetAllWithFiltersAsync(
             startDate,
             endDate,
             applicationNumberFilter,
-            resourceTitleFilter,
-            unitOfMeasureTitleFilter);
+            resourceIds, // Передаем ID
+            unitOfMeasureIds); // Передаем ID
 
         if (result.IsFailed)
             return BadRequest(result.Errors.Select(e => e.Message));
-        
+    
         return Ok(result.Value);
     }
 }

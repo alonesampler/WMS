@@ -20,10 +20,22 @@ public class ResourceService
         return await _httpClient.GetFromJsonAsync<Resource>($"api/v1/resources/{id}");
     }
     
-    public async Task<bool> CreateAsync(ResourceParamsRequest request)
+    public async Task<(bool Success, string ErrorMessage)> CreateAsync(ResourceParamsRequest request)
     {
-        var response = await _httpClient.PostAsJsonAsync("api/v1/resources", request);
-        return response.IsSuccessStatusCode;
+        try
+        {
+            var response = await _httpClient.PostAsJsonAsync("api/v1/resources", request);
+        
+            if (response.IsSuccessStatusCode)
+                return (true, null);
+            
+            var errorContent = await response.Content.ReadAsStringAsync();
+            return (false, $"Ошибка: {response.StatusCode}. {errorContent}");
+        }
+        catch (Exception ex)
+        {
+            return (false, $"Ошибка при создании: {ex.Message}");
+        }
     }
     
     public async Task<bool> UpdateAsync(Guid id, ResourceParamsRequest request)
@@ -50,12 +62,17 @@ public class ResourceService
         return response.IsSuccessStatusCode;
     }
     
-    public async Task<List<ResourceResponse>> GetByStateAsync(State state)
+    public async Task<List<ResourceResponse>> GetByStateAsync(State state, string? search = null)
     {
         try
         {
-            return await _httpClient.GetFromJsonAsync<List<ResourceResponse>>($"api/v1/resources?state={state}") 
-                ?? new List<ResourceResponse>();
+            var url = $"api/v1/resources?state={state}";
+        
+            if (!string.IsNullOrWhiteSpace(search))
+                url += $"&search={Uri.EscapeDataString(search)}";
+
+            return await _httpClient.GetFromJsonAsync<List<ResourceResponse>>(url) 
+                   ?? new List<ResourceResponse>();
         }
         catch
         {

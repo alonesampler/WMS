@@ -41,9 +41,12 @@ public class UnitOfMeasuresController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<List<UnitOfMeasureResponse>>> GetByState([FromQuery] State state = State.Working)
+    public async Task<ActionResult<List<UnitOfMeasureResponse>>> GetByState(
+        [FromQuery] State state = State.Working,
+        [FromQuery] string? search = null)
     {
-        var result = await _unitOfMeasureService.GetByStateAsync(state);
+        var result = await _unitOfMeasureService.GetByStateAsync(state, search
+        );
         if (result.IsFailed)
             return BadRequest(result.Errors);
 

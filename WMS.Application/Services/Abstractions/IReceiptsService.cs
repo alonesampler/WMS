@@ -12,8 +12,8 @@ public interface IReceiptsService
         DateTime? startDate = null,
         DateTime? endDate = null,
         string? applicationNumberFilter = null,
-        string? resourceTitleFilter = null,
-        string? unitOfMeasureTitleFilter = null);
+        List<Guid>? resourceIds = null,
+        List<Guid>? unitOfMeasureIds = null);
     Task<Result<ReceiptDocument>> GetByIdAsync(Guid id);
     Task<Result> UpdateAsync(Guid id, ReceiptDocumentParamsRequest @params);
 }

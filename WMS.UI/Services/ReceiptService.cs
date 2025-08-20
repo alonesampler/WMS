@@ -48,35 +48,39 @@ namespace WMS.UI.Services
             DateTime? startDate = null,
             DateTime? endDate = null,
             string? applicationNumberFilter = null,
-            string? resourceTitleFilter = null,
-            string? unitOfMeasureTitleFilter = null)
+            List<Guid>? resourceIds = null, // Изменили на List<Guid>
+            List<Guid>? unitOfMeasureIds = null) // Изменили на List<Guid>
         {
             try
             {
-                var queryParams = new Dictionary<string, string>();
-        
-                if (startDate.HasValue)
-                    queryParams.Add("startDate", startDate.Value.ToUniversalTime().ToString("O"));
-        
-                if (endDate.HasValue)
-                    queryParams.Add("endDate", endDate.Value.ToUniversalTime().ToString("O"));
-        
-                if (!string.IsNullOrEmpty(applicationNumberFilter))
-                    queryParams.Add("applicationNumberFilter", applicationNumberFilter);
-        
-                if (!string.IsNullOrEmpty(resourceTitleFilter))
-                    queryParams.Add("resourceTitleFilter", resourceTitleFilter);
-        
-                if (!string.IsNullOrEmpty(unitOfMeasureTitleFilter))
-                    queryParams.Add("unitOfMeasureTitleFilter", unitOfMeasureTitleFilter);
+                var queryParams = new List<string>();
 
-                var queryString = string.Join("&", queryParams.Select(kvp => $"{kvp.Key}={Uri.EscapeDataString(kvp.Value)}"));
-                var url = $"api/v1/receipts?{queryString}";
+                if (startDate.HasValue)
+                    queryParams.Add($"startDate={Uri.EscapeDataString(startDate.Value.ToUniversalTime().ToString("O"))}");
+
+                if (endDate.HasValue)
+                    queryParams.Add($"endDate={Uri.EscapeDataString(endDate.Value.ToUniversalTime().ToString("O"))}");
+
+                if (!string.IsNullOrEmpty(applicationNumberFilter))
+                    queryParams.Add($"applicationNumberFilter={Uri.EscapeDataString(applicationNumberFilter)}");
+
+                // Добавляем ID ресурсов (через запятую)
+                if (resourceIds != null && resourceIds.Any())
+                    queryParams.Add($"resourceIds={string.Join(",", resourceIds)}");
+
+                // Добавляем ID единиц измерения (через запятую)
+                if (unitOfMeasureIds != null && unitOfMeasureIds.Any())
+                    queryParams.Add($"unitOfMeasureIds={string.Join(",", unitOfMeasureIds)}");
+
+                var url = "api/v1/receipts";
+                if (queryParams.Count > 0)
+                    url += "?" + string.Join("&", queryParams);
 
                 return await _httpClient.GetFromJsonAsync<List<ReceiptDocumentInfoResponse>>(url);
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Error: {ex.Message}");
                 return null;
             }
         }

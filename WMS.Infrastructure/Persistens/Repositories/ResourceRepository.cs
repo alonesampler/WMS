@@ -49,4 +49,9 @@ public class ResourceRepository : IResourceRepository
 
         return await query.ToListAsync();
     }
+
+    public async Task<Resource?> GetByTitleAsync(string title) =>
+        await _dbContext.Resources
+            .AsNoTracking()
+            .FirstOrDefaultAsync(r => r.Title.ToLower() == title.ToLower());
 }

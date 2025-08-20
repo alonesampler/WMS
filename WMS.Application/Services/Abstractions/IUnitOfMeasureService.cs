@@ -14,5 +14,5 @@ public interface IUnitOfMeasureService
     Task<Result> UpdateAsync(Guid id, UnitOfMeasureParamsRequest @params);
     Task<Result> DeleteAsync(Guid id);
     Task<Result<UnitOfMeasure>> GetByIdAsync(Guid id);
-    Task<Result<List<UnitOfMeasureResponse>>> GetByStateAsync(State state);
+    Task<Result<List<UnitOfMeasureResponse>>> GetByStateAsync(State state, string? search = null);
 }

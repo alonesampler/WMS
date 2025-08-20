@@ -4,7 +4,12 @@
 @inject ResourceService ResourceService
 @inject NavigationManager NavigationManager
 
-<h3>"Добавление ресурса"</h3>
+<h3>Добавление ресурса</h3>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
 
 <div class="create-form">
     <div class="form-group">
@@ -13,29 +18,49 @@
     </div>
     
     <div class="form-actions">
-            <button @onclick="HandleCreate" class="btn-save">Создать</button>
-        <button @onclick="HandleCancel" class="btn-cancel">Отмена</button>
+        <button @onclick="HandleCreate" class="btn-save" disabled="@isLoading">
+            @if (isLoading)
+            {
+                <span>Создание...</span>
+            }
+            else
+            {
+                <span>Создать</span>
+            }
+        </button>
+        <button @onclick="HandleCancel" class="btn-cancel" disabled="@isLoading">Отмена</button>
     </div>
 </div>
 
 @code {
-    [Parameter]
-    public Guid Id { get; set; }
-
     private string resourceTitle = string.Empty;
-    
+    private string errorMessage = string.Empty;
+    private bool isLoading = false;
+
     private async Task HandleCreate()
     {
-        if (!string.IsNullOrWhiteSpace(resourceTitle))
+        if (string.IsNullOrWhiteSpace(resourceTitle))
         {
-            var request = new ResourceParamsRequest(resourceTitle);
-            var result = await ResourceService.CreateAsync(request);
-            
-            if (result)
-            {
-                NavigationManager.NavigateTo("/resources");
-            }
+            errorMessage = "Название не может быть пустым";
+            return;
         }
+
+        isLoading = true;
+        errorMessage = string.Empty;
+
+        var request = new ResourceParamsRequest(resourceTitle.Trim());
+        var (success, error) = await ResourceService.CreateAsync(request);
+        
+        if (success)
+        {
+            NavigationManager.NavigateTo("/resources");
+        }
+        else
+        {
+            errorMessage = error;
+        }
+        
+        isLoading = false;
     }
     
     private void HandleCancel()

@@ -20,6 +20,13 @@ public class ResourcesService : IResourceService
 
     public async Task<Result> CreateAsync(ResourceParamsRequest @params)
     {
+        var existingUnit = await _unitOfWork.ResourceRepository.GetByTitleAsync(@params.Title);
+        
+        if (existingUnit != null)
+        {
+            return Result.Fail("Ресурс с таким названием уже существует");
+        }
+        
         var state = (State)Resource.DEFAULT_STATE_NUMBER;
 
         var resource = Resource.Create(
@@ -81,6 +88,16 @@ public class ResourcesService : IResourceService
             return getResult.ToResult();
 
         var resource = getResult.Value;
+        
+        if (!resource.Title.Equals(@params.Title, StringComparison.OrdinalIgnoreCase))
+        {
+            var existingUnit = await _unitOfWork.UnitOfMeasureRepository.GetByTitleAsync(@params.Title);
+            
+            if (existingUnit != null && existingUnit.Id != id)
+            {
+                return Result.Fail("Ресурс с таким названием уже существует");
+            }
+        }
 
         resource.Update(@params.Title);
 
@@ -117,9 +134,10 @@ public class ResourcesService : IResourceService
         return Result.Ok(resource);
     }
     
-    public async Task<Result<List<ResourceResponse>>> GetByStateAsync(State state)
+    public async Task<Result<List<ResourceResponse>>> GetByStateAsync(State state, string? search = null)
     {
-        var resources = await _unitOfWork.ResourceRepository.GetByStateWithFiltersAsync(state);
+        var resources = await _unitOfWork.ResourceRepository
+            .GetByStateWithFiltersAsync(state, search);
 
         var response = resources.Select(r => r.ToResponse()).ToList();
 

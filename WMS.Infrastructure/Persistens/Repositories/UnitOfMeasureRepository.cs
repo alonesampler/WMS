@@ -48,4 +48,11 @@ public class UnitOfMeasureRepository : IUnitOfMeasureRepository
 
         return await query.ToListAsync();
     }
+
+    public async Task<UnitOfMeasure?> GetByTitleAsync(string title) =>
+        await _dbContext.UnitOfMeasures
+            .AsNoTracking()
+            .FirstOrDefaultAsync(r => r.Title.ToLower() == title.ToLower());
+    
+    
 }

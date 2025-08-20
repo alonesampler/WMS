@@ -8,6 +8,6 @@ public interface IReceiptDocumentRepository : IRepository<ReceiptDocument>
         DateTime? startDate = null,
         DateTime? endDate = null,
         string? applicationNumberFilter = null,
-        string? resourceTitleFilter = null,
-        string? unitOfMeasureTitleFilter = null);
+        List<Guid>? resourceIds = null, // Изменили на ID ресурсов
+        List<Guid>? unitOfMeasureIds = null);
 }

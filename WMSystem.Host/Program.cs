@@ -31,7 +31,7 @@ app.UseAuthorization();
 app.UseCors(x =>
 {
     x.WithHeaders().AllowAnyHeader();
-    x.WithOrigins("https://localhost:5249", "https://localhost:7184");
+    x.WithOrigins("https://localhost:5249", "https://localhost:7184", "http://localhost:5249", "http://localhost:7184");
     x.WithMethods().AllowAnyMethod();
 });
 
