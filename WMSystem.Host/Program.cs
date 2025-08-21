@@ -1,4 +1,6 @@
 using System.Text.Json.Serialization;
+using WMS.Infrastructure.Persistens;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.ConfigureModule(builder.Configuration);
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
